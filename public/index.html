@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="">
+    <link rel="icon" type="image/x-icon" src="\public\assets\sync.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Safe@Home</title>
+
+    <!-- Compiled and minified CSS -->
+    <!-- Materialze-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Materialize icons-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link href="styles.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="nav-wrapper" style=" background-color: #433b3b;">
+                  <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="https://www.linkedin.com/">Linkedin</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+
+        <div class="container">
+            <h1 class="title" id="pageTitle">Incident Reports</h1>
+            <div class="row">
+                <p class="flow-text mainText" id="currDate">Date</p>
+              
+
+
+            <div class="container">
+                <div class="row" id="listProjects">
+                </div>
+            </div>
+        </div>
+        <div class="row center " style="padding-top:50px;">
+            <a id="testButton" class="waves-effect waves-light btn-large modal-trigger" href="#modal1" style="background-color: #875612;"><i
+                    class="material-icons left" style="color:white; font-size:larger ">emoji_people</i>Add Project</a>
+        </div>
+            
+        
+    </main>
+    <footer class="page-footer">
+        <div class="footer-copyright">
+            <div class="container">
+                © 2022 Copyright AbyScaria
+                <a class="grey-text text-lighten-4 right" ><img
+                        src="/images/logo_mnc_original.jpg" style="height: 20px; padding-right: 15px;"></i>Boiler plate here !</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- socket IO Served by the server -->
+    <script src="/socket.io/socket.io.js"></script>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script src="env.js"></script>
+
+</body>
+
+</html>
+
+<!-- Modal Structure -->
+<div id="modal1" class="modal">
+    <div class="modal-content">
+        <h4>Report incident happend at your Home</h4>
+        <p>Help us to improve our servies</p>
+        <div class="row">
+            <div class="input-field col s12">
+                <input value="" id="customerAccount" type="text" class="validate">
+                <label class="title" for="customerAccount">Customer Account :</label>
+            </div>
+            <div class="input-field col s12">
+                <input value="" id="incidentDate" type="date" class="validate">
+                <label class="Title" for="incidentDate">Incident Date :</label>
+            </div>
+            <div class="input-field col s12">
+                <input value="" id="deviceID" type="text" class="validate">
+                <label class="title" for="title">Device ID</label>
+            </div>
+            <div class="input-field col s12">
+                <input value="" id="incidentType" type="text" class="validate">
+                <label class="Title" for="image">Incident Type</label>
+            </div>
+            <div class="input-field col s12">
+                <input value="" id="description" type="text" class="validate">
+                <label class="description" for="description">Incident Description</label>
+            </div>
+
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a onclick="newProject()" href="#!" class="modal-close waves-effect waves-green btn-flat">Submit</a>
+    </div>
+</div>
