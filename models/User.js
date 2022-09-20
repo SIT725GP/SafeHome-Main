@@ -1,18 +1,12 @@
-require("dotenv").config() // load .env variables
-const mongoose = require("mongoose") //import fresh mongoose object
-const {log} = require("mercedlogger") // import merced logger
+const {Schema, model} = require("../db/connection") // import Schema & model
 
-//DESTRUCTURE ENV VARIABLES
-const {DATABASE_URL} = process.env 
+// User Schema
+const UserSchema = new Schema({
+    username: {type: String, unique: true, required: true},
+    password: {type: String, required: true}
+})
 
-// CONNECT TO MONGO
-mongoose.connect = mongoose.connect(DATABASE_URL, {useNewUrlParser: true, useUnifiedTopology: true})
+// User model
+const User = model("User", UserSchema)
 
-// CONNECTION EVENTS
-mongoose.connection
-.on("open", () => log.green("DATABASE STATE", "Connection Open"))
-.on("close", () => log.magenta("DATABASE STATE", "Connection Open"))
-.on("error", (error) => log.red("DATABASE STATE", error))
-
-// EXPORT CONNECTION
-module.exports = mongoose
+module.exports = User
