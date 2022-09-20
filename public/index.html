@@ -22,7 +22,7 @@
     <header>
         <nav>
             <div class="nav-wrapper" style=" background-color: #433b3b;">
-                  <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a href="https://www.linkedin.com/">Linkedin</a></li>
                 </ul>
             </div>
@@ -32,29 +32,47 @@
 
         <div class="container">
             <h1 class="title" id="pageTitle">Incident Reports</h1>
-            <div class="row">
-                <p class="flow-text mainText" id="currDate">Date</p>
-              
-
-
+            <p class="flow-text mainText" id="currDate">Date</p>
+            <div class="container">
+                <form class="col s12">
+                    <div class="input-field col s12">
+                        <textarea id="datefrom" class="materialize-textarea"  type="date"></textarea>
+                        <label for="datefrom">Date From</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <textarea id="dateto" class="materialize-textarea"></textarea>
+                        <label for="dateto">Date To:</label>
+                    </div>
+                </form>
+            </div>
             <div class="container">
                 <div class="row" id="listProjects">
                 </div>
             </div>
         </div>
         <div class="row center " style="padding-top:50px;">
-            <a id="testButton" class="waves-effect waves-light btn-large modal-trigger" href="#modal1" style="background-color: #875612;"><i
-                    class="material-icons left" style="color:white; font-size:larger ">emoji_people</i>Add Project</a>
+            <a id="testButton" class="waves-effect waves-light btn-large modal-trigger" href="#modal1"
+                style="background-color: #875612;"><i class="material-icons left"
+                    style="color:white; font-size:larger ">emoji_people</i>Report Incident</a>
         </div>
-            
-        
+
+        <div class="container">
+            <h1 class="title" id="pageTitle2">Incident Reports</h1>
+            <p class="flow-text mainText" id="currDate2">Date</p>
+            <div class="row" style="width:100%">
+                <div id="listProjects2">
+                </div>
+            </div>
+        </div>
+
+
     </main>
     <footer class="page-footer">
         <div class="footer-copyright">
             <div class="container">
                 © 2022 Copyright AbyScaria
-                <a class="grey-text text-lighten-4 right" ><img
-                        src="/images/logo_mnc_original.jpg" style="height: 20px; padding-right: 15px;"></i>Boiler plate here !</a>
+                <a class="grey-text text-lighten-4 right"><img src="/images/logo_mnc_original.jpg"
+                        style="height: 20px; padding-right: 15px;"></i>Boiler plate here !</a>
             </div>
         </div>
     </footer>
