@@ -1,0 +1,25 @@
+{
+  "name": "safehome_login",
+  "version": "1.0.0",
+  "description": "",
+  "main": "login_script.js",
+  "scripts": {
+    "start": "node login_server.js"
+  },
+  "author": "MD KAVIUL HOSSAIN",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "chai": "^4.3.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1",
+    "jsonwebtoken": "^8.5.1",
+    "mocha": "^10.0.0",
+    "mongodb": "^4.9.1",
+    "mongoose": "^6.6.0",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.19",
+    "request": "^2.88.2"
+  }
+}
