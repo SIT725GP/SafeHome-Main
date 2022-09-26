@@ -1,4 +1,4 @@
-const UserSignUp = require('../images/Model/userSignUp')
+const UserSignUp = require('../Model/userSignUp')
 
 const index = (req, res, next) => {
     UserSignUp.find()
