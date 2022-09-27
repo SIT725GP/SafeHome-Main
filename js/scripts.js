@@ -6,11 +6,11 @@ const getProjects = () => {
     })
 }
 
-//ajax function to add project
-const addProjectToApp = (project) => {
+//ajax function to create user
+const addUserToApp = (user) => {
     $.ajax({
-        url: '/api/projects',
-        data: project,
+        url: '/user/signup',
+        data: user,
         type: 'POST',
         success: (result) => {
             alert(result.message);
@@ -35,7 +35,7 @@ const submitUserForm = () => {
     formData.password_confirm = $('#password_confirm').val();
 
     console.log("Form Data Submitted: ", formData);
-    addProjectToApp(formData);
+    addUserToApp(formData);
 }
 
 
