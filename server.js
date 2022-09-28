@@ -23,9 +23,6 @@ app.use(createContext) // create req.context
 
 
 // ROUTES AND ROUTES
-/* app.get("/", (req, res) => {
-    res.send("this is the test route to make sure server is working")
-}) */
 app.use("/user", UserRouter) // send all "/user" requests to UserRouter for routing
 app.use("/todos", TodoRouter) // send all "/todos" request to TodoROuter
 
