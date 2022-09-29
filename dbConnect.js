@@ -1,7 +1,7 @@
 /// DATABASE Connections
 //database connection
 const MongoClient = require('mongodb').MongoClient;
-
+// mongodb+srv://<username>:<password>@safehome.tqfgm2a.mongodb.net/?retryWrites=true&w=majority
 const uri = "mongodb+srv://sit725T2:sitPrac5@cluster0.y9pjz5o.mongodb.net/?retrywrites=true&w=majority";
 let mongoClient = new MongoClient(uri, { useNewUrlParser: true,useUnifiedTopology: true });
 
