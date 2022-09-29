@@ -16,7 +16,6 @@ mongoClient.connect((err,db) => {
      }
  });
  
-
 exports.mongoClient = mongoClient;
 
 // this function is used to open the connection 
