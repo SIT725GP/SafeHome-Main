@@ -12,7 +12,7 @@ let io = require('socket.io')(http);
 let projectsRoute = require('./routes/projects')
 
 
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || 7000;
 app.use(express.json());
 app.use(express.static(__dirname + '/public'));
 app.use('/api/projects',projectsRoute)

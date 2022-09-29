@@ -1,121 +1,129 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Safe@Home - Incident Reports</title>
-  <meta name="description" content="Safe@Home - Incident Reporting ">
-  <meta name="author" content="Aby">
-  <meta property="og:title" content="Incident Reports">
-  <meta property="og:type" content="website">
 
-  <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <!-- Custom Style Sheet-->
-  <link rel="stylesheet" href="css/stylesP3.css">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="">
+    <link rel="icon" type="image/x-icon" src="\public\assets\sync.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Safe@Home</title>
+
+    <!-- Compiled and minified CSS -->
+    <!-- Materialze-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Materialize icons-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link href="styles.css" rel="stylesheet">
 </head>
 
 <body>
+    <header>
+        <nav>
+            <div class="nav-wrapper" style=" background-color: #433b3b;">
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="https://www.linkedin.com/">Linkedin</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
 
-
-
-    <nav>
-      <div class="nav-wrapper navbar-size">
-        <a href="#" class="brand-logo"><img class="user-image-size" src="images/logo_mnc_original.png" /></a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a target="_blank" href="https://www.linkedin.com/in/aby-scaria-2266a714/">LinkedIn</a></li>
-        </ul>
-      </div>
-  </nav>
-
-  <main class="main-body">
-    <div class="container">
-      <div class="row">
-        <div class="col s12 center-align">
-          <h1 id="heading">Welcome to SIT 725 Week 3</h1>
-          <p class="flow-text">Materialize - 
-            A modern responsive front-end framework based on Material Design</p>
+        <div class="container">
+            <h1 class="title" id="pageTitle">Incident Reports</h1>
+            <p class="flow-text mainText" id="currDate">Date</p>
+            <div class="container">
+                <form class="col s12">
+                    <div class="input-field col s12">
+                        <textarea id="datefrom" class="materialize-textarea"  type="date"></textarea>
+                        <label for="datefrom">Date From</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <textarea id="dateto" class="materialize-textarea"></textarea>
+                        <label for="dateto">Date To:</label>
+                    </div>
+                </form>
+            </div>
+            <div class="container">
+                <div class="row" id="listProjects">
+                </div>
+            </div>
         </div>
-        <div class="col s12 center-align">
-          <img class="materialboxed materialboxed-image" src="images/livedemo.png">
+        <div class="row center " style="padding-top:50px;">
+            <a id="testButton" class="waves-effect waves-light btn-large modal-trigger" href="#modal1"
+                style="background-color: #875612;"><i class="material-icons left"
+                    style="color:white; font-size:larger ">emoji_people</i>Report Incident</a>
         </div>
 
-      </div>
-
-    <div class="h1cars" >
-        <div class="row">
-            <div class="col s12">
-                <h1 id="heading" class="center-align">Top Five Exotic Cars</h1>
+        <div class="container">
+            <h1 class="title" id="pageTitle2">Incident Reports</h1>
+            <p class="flow-text mainText" id="currDate2">Date</p>
+            <div class="row" style="width:100%">
+                <div id="listProjects2">
+                </div>
             </div>
         </div>
-    </div>
-      <div class="row" id="card-section">
-        <div class="col s4 center-align">
-          <div class="card medium">
-            <div class="card-image waves-effect waves-block waves-light">
-              <img class="activator" src="images/Exotic-Cars.jpg">
-            </div>
-            <div class="card-content">
-              <span class="card-title activator grey-text text-darken-4">Exotic-Cars<i class="material-icons right">more_vert</i></span>
-              <p><a href="#">About Exotic-Cars</a></p>
-            </div>
-            <div class="card-reveal">
-              <span class="card-title grey-text text-darken-4">Exotic-Cars<i class="material-icons right">close</i></span>
-              <p class="card-text card-desc-color">This is an Exotic Ferrari... Hope are interested in others as well!!</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col s12 center-align">
-      <a class="waves-effect waves-light btn click-me-button modal-trigger" id="clickMeButton" data-target="modal1"><i class="material-icons left">auto_fix_high</i>Save selection</a>
-     
-    <!-- Modal Structure -->
-    <div id="modal1" class="modal modal-fixed-footer">
-      <div class="row modal-content">
-        <form class="col s12">
-          <div class="row">
-            <div class="input-field col s6">
-              <input placeholder="Placeholder" id="title" type="text" class="validate">
-              <label for="title">Title</label>
-            </div>
-            <div class="input-field col s6">
-              <input id="image" type="text" class="validate">
-              <label for="image">Image</label>
-            </div>
-          </div>
-          <div class="row">
-            <div class="input-field col s12">
-              <input id="link" type="text" class="validate">
-              <label for="link">Link</label>
-            </div>
-          </div>
-          <div class="row">
-            <div class="input-field col s12">
-              <input id="description" type="text" class="validate">
-              <label for="description">Description</label>
-            </div>
-          </div>
-          <div class="row">
-            <div class="input-field col s12 center-align">
-              <a class="waves-effect waves-light btn" id="formSubmit">submit</a>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
-  </main>
 
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-  
-  <!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script src="js/scripts.js"></script>
-  
-<!-- socket IO Served by the server -->
-<script src="/socket.io/socket.io.js"></script>
-<script src="js/scripts.js"></script>
+
+    </main>
+    <footer class="page-footer">
+        <div class="footer-copyright">
+            <div class="container">
+                © 2022 Copyright AbyScaria
+                <a class="grey-text text-lighten-4 right"><img src="/images/logo_mnc_original.jpg"
+                        style="height: 20px; padding-right: 15px;"></i>Boiler plate here !</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- socket IO Served by the server -->
+    <script src="/socket.io/socket.io.js"></script>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script src="env.js"></script>
+
 </body>
+
 </html>
+
+<!-- Modal Structure -->
+<div id="modal1" class="modal">
+    <div class="modal-content">
+        <h4>Report incident happend at your Home</h4>
+        <p>Help us to improve our servies</p>
+        <div class="row">
+            <div class="input-field col s12">
+                <input value="" id="customerAccount" type="text" class="validate">
+                <label class="title" for="customerAccount">Customer Account :</label>
+            </div>
+            <div class="input-field col s12">
+                <input value="" id="incidentDate" type="date" class="validate">
+                <label class="Title" for="incidentDate">Incident Date :</label>
+            </div>
+            <div class="input-field col s12">
+                <input value="" id="deviceID" type="text" class="validate">
+                <label class="title" for="title">Device ID</label>
+            </div>
+            <div class="input-field col s12">
+                <input value="" id="incidentType" type="text" class="validate">
+                <label class="Title" for="image">Incident Type</label>
+            </div>
+            <div class="input-field col s12">
+                <input value="" id="description" type="text" class="validate">
+                <label class="description" for="description">Incident Description</label>
+            </div>
+
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a onclick="newProject()" href="#!" class="modal-close waves-effect waves-green btn-flat">Submit</a>
+    </div>
+</div>
