@@ -7,6 +7,10 @@ const UserRouter = require("./controllers/User") //import User Routes
 const TodoRouter = require("./controllers/Todo") // import Todo Routes
 const {createContext} = require("./controllers/middleware")
 
+let dbConnect = require("./dbConnect");
+let http = require('http').createServer(app);
+let io = require('socket.io')(http);
+
 //DESTRUCTURE ENV VARIABLES WITH DEFAULT VALUES
 const {PORT = 3000} = process.env
 
@@ -28,6 +32,13 @@ app.use(createContext) // create req.context
 }) */
 app.use("/user", UserRouter) // send all "/user" requests to UserRouter for routing
 app.use("/todos", TodoRouter) // send all "/todos" request to TodoROuter
+
+//Abys Routes
+// routes
+let projectsRoute = require('./routes/projects')
+app.use('/api/projects',projectsRoute)
+
+app.use(express.json());
 
 // APP LISTENER
 app.listen(PORT, () => log.green("SERVER STATUS", `Listening on port ${PORT}`))
