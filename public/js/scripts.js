@@ -24,7 +24,7 @@ const submitUserForm = () => {
     formData.home_address = $('#home_address').val();
     formData.email = $('#email').val();
     formData.password = $('#password').val();
-    formData.password_confirm = $('#password_confirm').val();
+    
 
     console.log("Form Data Submitted: ", formData);
     addUserToApp(formData);
