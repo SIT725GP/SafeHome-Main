@@ -1,7 +1,7 @@
 let client = require("../dbConnect");
 let projectsCollection;
 setTimeout(() => {
-    projectsCollection = client.mongoClient.db("SafeHome").collection("incidentReports");
+    projectsCollection = client.mongoClient.db("safehome").collection("shincidents");
 
 }, 2000)
 
@@ -13,7 +13,7 @@ const getAllProjects = (res) => {
 }
 
 async function findIncidentByDates(client, startDate,endDate) {
-    const projectsCollection = client.mongoClient.db("SafeHome").collection("incidentReports").find({ name: nameOfListing });
+    const projectsCollection = client.mongoClient.db("safehome").collection("shincidents").find({ incedentDate: nameOfListing });
 
     if (result) {
         console.log(`Found a listing in the collection with the name '${nameOfListing}':`);
