@@ -11,7 +11,6 @@ let io = require('socket.io')(http);
 // routes
 let projectsRoute = require('./routes/projects')
 
-
 var port = process.env.PORT || 7000;
 app.use(express.json());
 app.use(express.static(__dirname + '/public'));
@@ -29,7 +28,6 @@ io.on('connection', (socket) => {
   }, 1000);
 
 });
-
 
 http.listen(port,()=>{
   console.log("Listening on port ", port);
