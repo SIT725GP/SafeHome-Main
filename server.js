@@ -7,15 +7,15 @@ const UserRouter = require("./controllers/User") //import User Routes
 const TodoRouter = require("./controllers/Todo") // import Todo Routes
 const {createContext} = require("./controllers/middleware")
 
+// Create Application Object
+const app = express()
+
 let dbConnect = require("./dbConnect");
 let http = require('http').createServer(app);
 let io = require('socket.io')(http);
 
 //DESTRUCTURE ENV VARIABLES WITH DEFAULT VALUES
 const {PORT = 3000} = process.env
-
-// Create Application Object
-const app = express()
 
 // GLOBAL MIDDLEWARE
 app.use(express.static(__dirname+'/public'))
