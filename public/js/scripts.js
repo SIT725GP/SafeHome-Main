@@ -1,11 +1,3 @@
-const getProjects = () => {
-    $.get('/api/projects',(response) => {
-        if(response.statusCode==200){
-            addCards(response.data);
-        }
-    })
-}
-
 //ajax function to create user
 const addUserToApp = (user) => {
     $.ajax({
@@ -39,22 +31,11 @@ const submitUserForm = () => {
 }
 
 
-
-$(document).ready(function(){
-    $('.materialboxed').materialbox();
-    $('#formSubmit2').click(()=>{
-        submitForm();
-    })
-    //addCards(cardList);
-    getProjects();
-    $('.modal').modal();
-  });
-
-
   $(document).ready(function(){
     $('.materialboxed').materialbox();
     $('#formSubmit').click(()=>{
         submitUserForm();
     })
+    $('.modal').modal();
   });
 
