@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-/node_modules
-=======
 # Logs
 logs
 *.log
@@ -107,4 +104,5 @@ dist
 
 # Ignore package-lock.json
 package-lock.json
->>>>>>> origin/Abys-Contribution
+
+/node_modules
