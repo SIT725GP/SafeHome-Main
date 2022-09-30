@@ -1,5 +1,5 @@
 // send data to the server
-const submitProject = (project) => {
+const submitIncident = (project) => {
   $.ajax({
     url: '/api/projects',
     contentType: 'application/json',
@@ -12,7 +12,7 @@ const submitProject = (project) => {
 }
 
 
-const newProject = () => {
+const newIncident = () => {
   let customerAccount = $('#customerAccount').val()
   let incidentDate = $('#incidentDate').val()
   let deviceId = $('#deviceId').val()
@@ -23,7 +23,7 @@ const newProject = () => {
     customerAccount,incidentDate,deviceId,incidentType,description
   }
   console.log(project)
-  submitProject(project)
+  submitIncident(project)
 
 }
 
