@@ -1,2 +1,2 @@
 # DATABASE_URL=mongodb://localhost:27017/test
-#DATABASE_URL="mongodb+srv://jason:123qwe@safehome.tqfgm2a.mongodb.net/?retryWrites=true&w=majority"
+DATABASE_URL="mongodb+srv://shadmin:SIT725123qwe@safehome.tqfgm2a.mongodb.net/?retryWrites=true&w=majority"

@@ -23,6 +23,7 @@ const submitUserForm = () => {
     formData.last_name = $('#last_name').val();
     formData.home_address = $('#home_address').val();
     formData.email = $('#email').val();
+    formData.username = $('#username').val();
     formData.password = $('#password').val();
     
 

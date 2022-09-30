@@ -6,7 +6,8 @@ const {log} = require("mercedlogger") // import merced logger
 const {DATABASE_URL} = process.env 
 
 // CONNECT TO MONGO
-mongoose.connect = mongoose.connect(DATABASE_URL, {useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect = mongoose.connect(DATABASE_URL, {useNewUrlParser: true, useUnifiedTopology: true, dbName: "safehome"})
+
 
 // CONNECTION EVENTS
 mongoose.connection
