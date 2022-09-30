@@ -40,8 +40,8 @@ app.get("/test", function (request, response) {
 app.use("/user", UserRouter) // send all "/user" requests to UserRouter for routing
 app.use("/todos", TodoRouter) // send all "/todos" request to TodoROuter
 
-/* //socket test
-io.on('connection', (socket) => {
+ //socket test
+/*io.on('connection', (socket) => {
   console.log('a user connected', socket.id);
   socket.on('disconnect', () => {
     console.log('user disconnected');

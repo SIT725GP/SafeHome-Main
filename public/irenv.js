@@ -48,10 +48,10 @@ const testButtonFunction = () => {
 
 // connect to the socket
 
-/*let socket = io();
+//let socket = io();
 
 
-socket.on('number', (msg) => {
+/*socket.on('number', (msg) => {
   console.log('Random number: ' + msg);
   var dt = new Date();
   $("#pageTitle").html("Safe@Home - Incident Reports ")
