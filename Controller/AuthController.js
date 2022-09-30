@@ -99,6 +99,11 @@ const login = (req, res, next) => {
             res.json({message: 'No user found!'})
         }
     })
+    .catch(error => {
+        res.json({
+            message:"No user found!"
+        })
+    })
 
 
 }

@@ -8,8 +8,8 @@ const bodyParser = require('body-parser')
 
 const authRoute = require('./Routes/auth')
 const UserSignUpRoute = require('./Routes/usersignup');
-const url =  "mongodb+srv://kaviul:kaviuln@safehome.tqfgm2a.mongodb.net/?retryWrites=true&w=majority"
-
+//const url =  "mongodb+srv://kaviuln1:kaviuln@kncluster-1.ieurp6n.mongodb.net/?retryWrites=true&w=majority"
+const url =  "mongodb+srv://kaviul:kaviuln@safehome.tqfgm2a.mongodb.net/safehome?retryWrites=true&w=majority"
 try{
 mongoose.connect(url, {useUnifiedTopology: true},
     () => console.log("Mongoose connected"),
