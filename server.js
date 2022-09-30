@@ -1,5 +1,3 @@
-
-
 require("dotenv").config() // load .env variables
 var express = require("express") // import express
 const morgan = require("morgan") //import morgan
@@ -35,7 +33,14 @@ app.get("/test", function (request, response) {
 });
 
 
-//socket test
+// JASON's ROUTES AND ROUTES
+/* app.get("/test", (req, res) => {
+    res.send("this is the test route to make sure server is working")
+    }) */
+app.use("/user", UserRouter) // send all "/user" requests to UserRouter for routing
+app.use("/todos", TodoRouter) // send all "/todos" request to TodoROuter
+
+/* //socket test
 io.on('connection', (socket) => {
   console.log('a user connected', socket.id);
   socket.on('disconnect', () => {
@@ -45,7 +50,7 @@ io.on('connection', (socket) => {
     socket.emit('number', parseInt(Math.random()*10));
   }, 1000);
 
-});
+}); */
 
 //ABY Routes
 let projectsRoute = require('./routes/projects')

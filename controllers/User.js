@@ -17,10 +17,11 @@ router.post("/signup", async (req, res) => {
     // create a new user
     const user = await User.create(req.body);
     // send new user as response
+    console.log(user)
     res.json(user);
   } catch (error) {
     res.status(400).json({ error });
-  }
+  } 
 });
 
 // Login route to verify a user and get a token
