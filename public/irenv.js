@@ -48,7 +48,7 @@ const testButtonFunction = () => {
 
 // connect to the socket
 
-let socket = io();
+/*let socket = io();
 
 
 socket.on('number', (msg) => {
@@ -58,7 +58,7 @@ socket.on('number', (msg) => {
   $("#pageTitle2").html("Safe@Home - Incident Reports ")
   $("#currDate").html("As on :" + dt.getDate() + "/" + dt.getMonth() + "/" + dt.getFullYear() + "-" + dt.getHours() + ":" + dt.getMinutes())
   $("#currDate2").html("As on :" + dt.getDate() + "/" + dt.getMonth() + "/" + dt.getFullYear() + "-" + dt.getHours() + ":" + dt.getMinutes())
-})
+})*/
 
 //appends a the project row with objects of type project 
 var cnt=1;

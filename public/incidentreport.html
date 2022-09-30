@@ -1,33 +1,34 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-    
-    <title>SafeHome</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="">
+    <link rel="icon" type="image/x-icon" src="\public\assets\sync.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Safe@Home</title>
 
-    <!--GET CSS-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">   
+    <!-- Compiled and minified CSS -->
+    <!-- Materialze-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Materialize icons-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    
-    <!--local CSS-->
-    <link rel="stylesheet" href="css/style.css">
-    
-    <!--Load jQuery -->
-    <script src="http://code.jquery.com/jquery-1.11.2.min.js"
-    type="text/javascript"></script>
 
-</head>  
+    <link href="styles.css" rel="stylesheet">
+</head>
 
 <body>
-    <nav>
-        <div class="nav-wrapper navbar-size">
-        <a href="#" class="brand-logo"><img class="user-image-size" src="#"/></a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="#">Your Account</a></li>
-            <li><a href="#">Checklist</a></li>
-            <li><a href="#">Incident Reports</a></li> 
-            <li><a class="waves-effect blue-grey lighten-1 btn click-me-login-button modal-trigger" id="clickMeButton" data-target="modal2" class="material-icons left"><i class="material-icons right">cloud</i>Login</a>   
-          </ul>
-        </div>
-    </nav>
+    <header>
+        <nav>
+            <div class="nav-wrapper" style=" background-color: #433b3b;">
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="https://www.linkedin.com/">Linkedin</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
 
         <div class="container">
             <h1 class="title" id="pageTitle">Incident Reports</h1>
@@ -50,7 +51,7 @@
             </div>
         </div>
         <div class="row center " style="padding-top:50px;">
-            <a id="testButton" class="waves-effect waves-light btn-large modal-trigger" href="#modal1"
+            <a id="testButton" class="waves-effect waves-light btn-large modal-trigger" href="#irmodal"
                 style="background-color: #875612;"><i class="material-icons left"
                     style="color:white; font-size:larger ">emoji_people</i>Report Incident</a>
         </div>
@@ -70,14 +71,14 @@
         <div class="footer-copyright">
             <div class="container">
                 © 2022 Copyright AbyScaria
-                <a class="grey-text text-lighten-4 right"><img src="/images/logo_mnc_original.jpg"
+                <a class="grey-text text-lighten-4 right"><img src="logo_mnc_original.jpg"
                         style="height: 20px; padding-right: 15px;"></i>Boiler plate here !</a>
             </div>
         </div>
     </footer>
 
-    <!-- socket IO Served by the server -->
-    <script src="/socket.io/socket.io.js"></script>
+    <!-- socket IO Served by the server 
+    <script src="/socket.io/socket.io.js"></script>-->
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -90,72 +91,39 @@
     <script src="irenv.js"></script>
 
 </body>
-     
-    
-    <!-- Modal Structure -->
-    <div id="modal1" class="modal modal-fixed-footer">
-    <div class="col s12 center-align">
-        <h5 id="heading">Create Account</h5>
-    </div>
-      <div class="row modal-content">
-        <form class="col s12">
-          <div class="row">
-            <div class="input-field col s6">
-              <input id="first_name" type="text" class="validate">
-              <label for="first_name">First Name</label>
-            </div>
-            <div class="input-field col s6">
-              <input id="last_name" type="text" class="validate">
-              <label for="last_name">Last Name</label>
-            </div>
-          </div>
-          <div class="row">
-          <div class="input-field col s12">
-            <input id="home_address" type="text" class="validate">
-            <label for="home_address">Home Address</label>
-          </div>
-        </div>
-          <div class="row">
-            <div class="input-field col s12">
-              <input id="email" type="email" class="validate">
-              <label for="email">Email</label>
-            </div>
-          </div>
-          <div class="row">
-            <div class="input-field col s6">
-              <input id="password" type="password" class="validate">
-              <label for="password">Password</label>
-            </div>
-          
-          <div class="input-field col s6">
-              <input id="password_confirm" type="password" class="validate">
-              <label for="password">Confirm Password</label>
-            </div>
-          </div>
-          
-          <div class="row">
-            <div class="input-field col s12 center-align">
-              <a class="waves-effect waves-light btn" id="formSubmit">Create</a>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
 
-    <div id="modal2" class="modal modal">
-        <div class="row modal-content">
-          <h4>Thanks for logging in!</h4>
-        
-          
-        </div>
-      </div>
-
-  </main>
-
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
-    <script src="irenv.js"></script>
-
-</body>
 </html>
+
+<!-- Modal Structure -->
+<div id="irmodal" class="modal">
+    <div class="modal-content">
+        <h4>Report incident happend at your Home</h4>
+        <p>Help us to improve our servies</p>
+        <div class="row">
+            <div class="input-field col s12">
+                <input value="" id="Account" type="text" class="validate">
+                <label class="labelCA" for="Account">Customer Account :</label>
+            </div>
+            <div class="input-field col s12">
+                <input value="" id="incidentDate" type="date" class="validate">
+                <label class="labelIncDt" for="incidentDate">Incident Date :</label>
+            </div>
+            <div class="input-field col s12">
+                <input value="" id="deviceID" type="text" class="validate">
+                <label class="labelDID" for="deviceID">Device ID</label>
+            </div>
+            <div class="input-field col s12">
+                <input value="" id="incidentType" type="text" class="validate">
+                <label class="labelIT" for="incidentType">Incident Type</label>
+            </div>
+            <div class="input-field col s12">
+                <input value="" id="icDesc" type="text" class="validate">
+                <label class="labelDes" for="icDes">Incident Description</label>
+            </div>
+
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a onclick="newProject()" href="#!" class="modal-close waves-effect waves-green btn-flat">Submit</a>
+    </div>
+</div>
