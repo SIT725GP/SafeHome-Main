@@ -4,7 +4,7 @@
 const LoginForm = document.getElementById("login-form");
 const errorMsg = document.getElementById("error-msg");
 const successMsg = document.getElementById("success-msg");
-//let btnSubmit = document.getElementById("btn-submit");
+let btnSubmit = document.getElementById("btn-submit");
 const btnCancel = document.getElementById("btn-cancel");
 const showPassword = document.getElementById("showPassword")
 // const app = require("express");
