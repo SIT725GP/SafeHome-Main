@@ -35,3 +35,6 @@
   /*when hovering an item:*/
   background-color: rgba(0, 0, 0, 0.1);
 }
+nav {
+  background-color: #0d47a1;
+}
