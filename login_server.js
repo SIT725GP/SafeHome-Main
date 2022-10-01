@@ -5,7 +5,7 @@ const cors = require('cors');
 const mongoose = require('mongoose')
 const morgan = require('morgan')
 const bodyParser = require('body-parser')
-
+let user = require("./Controller/AuthController")
 
 const authRoute = require('./Routes/auth')
 const User = require("./Model/user")
@@ -54,7 +54,8 @@ app.post('/', async(req, res) => {
        console.log(useremail)
 
        //const userpassword = await User.findOne({password:password})
-
+    .then(user => {
+        if(user){
        bcrypt.compare(password, User.findOne({password:password}), function(err, result) 
        {
         if(err){
@@ -71,9 +72,16 @@ app.post('/', async(req, res) => {
             message: "Invalid Password!" })
         }
     })
+}
+    
+    else {
+        res.json({message: 'No user found!'})
+    }
+})
+
         
 }catch (error) {
-        res.status(400).send("Invalid Email")   
+    res.sendFile(__dirname+'/design/login.html');   
     }
 
 })
