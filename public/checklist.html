@@ -1,0 +1,110 @@
+<html>
+<head>
+    
+    <title>Checklist</title>
+
+    <!--GET CSS-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">   
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!--local CSS-->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!--Load jQuery -->
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js"
+    type="text/javascript"></script>
+
+</head>  
+
+<body>
+    <nav>
+        <div class="nav-wrapper navbar-size">
+        <a href="#" class="brand-logo"><img class="user-image-size" src="#"/></a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="#">Your Account</a></li>
+            <li><a href="#">Checklist</a></li>
+            <li><a href="http://localhost:3000/incidentreport.html">Incident Reports</a></li> 
+            <li><a class="waves-effect waves-light btn click-me-button modal-trigger" id="clickMeButton" data-target="createUser_modal" class="material-icons left">Register<i class="material-icons right">send</i></a></li>
+            <li><a class="waves-effect blue-grey lighten-1 btn click-me-login-button modal-trigger" id="clickMeButton" data-target="modal2" class="material-icons left"><i class="material-icons right">cloud</i>Login</a>   
+          </ul>
+        </div>
+    </nav>
+
+<main class="main-body">
+    <div class="container">
+
+
+      <!--Find a better method for this-->
+        </br></br>
+        </br>
+     
+    
+    <!-- Checklist Form-->
+    <div class="col s12 center-align">
+        <h5 id="heading">Checklist</h5>
+    </div>
+    </br>
+    <div class="row modal-content">
+      <form class="col s12">
+            <div class="switch">
+                <input id="stovetop">
+                Have you checked your stovetop?
+                <label>
+                Yes
+                <input type="checkbox">
+                <span class="lever"></span>
+                No
+                </label>
+            </div>
+                
+            <div class="switch">
+                <input id="stove">
+                <p for="stove">Have you checked your stovetop?</p>
+                <label>
+                Yes
+                <input type="checkbox">
+                <span class="lever"></span>
+                No
+                </label>
+            </div>
+            
+            <div class="switch">
+                <input id="stove">
+                <p for="stove">Have you checked your stovetop?</p>
+                <label>
+                Yes
+                <input type="checkbox">
+                <span class="lever"></span>
+                No
+                </label>
+            </div>
+            
+            <div class="switch">
+                <input id="stove">
+                <p for="stove">Have you checked your stovetop?</p>
+                <label>
+                Yes
+                <input type="checkbox">
+                <span class="lever"></span>
+                No
+                </label>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12 center-align">
+                <a class="waves-effect waves-light btn" id="formSubmit">Submit<i class="material-icons right">send</i></a>
+                </div>
+            </div>
+
+        
+        </form>
+    </div>
+</main>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="js/scripts.js"></script>
+
+</body>
+</html>
