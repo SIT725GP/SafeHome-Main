@@ -1,21 +1,36 @@
-//  let User = require('../Model/user')
+ //let User = require('../Model/user')
 //  let bcrypt = require('bcryptjs')
 //  let jwt = require('jsonwebtoken')
 const LoginForm = document.getElementById("login-form");
 const errorMsg = document.getElementById("error-msg");
 const successMsg = document.getElementById("success-msg");
-const btnSubmit = document.getElementById("btn-submit");
+//let btnSubmit = document.getElementById("btn-submit");
+const btnCancel = document.getElementById("btn-cancel");
 const showPassword = document.getElementById("showPassword")
 // const app = require("express");
 
-// let User = require('../Model/user')
+//  let User = require('../Model/user')
 
-btnSubmit.addEventListener("click", (p) => {
-    p.preventDefault();
-    const useremail = LoginForm.email.value;
-    const password = LoginForm.password.value;
+// btnSubmit.addEventListener("click", (p) => {
+//     p.preventDefault();
 
-    // app.post('/login', async(req, res) => {
+//     app.post('/', async(req, res) => {
+//         try {
+//             const email = req.body.email;
+//             const password = req.body.password;
+        
+//            const useremail = await User.findOne({email:email});
+//            res.send(useremail);
+//            console.log(useremail)
+            
+//         } catch (error) {
+//             res.status(400).send("Invalid Email")   
+//         }
+//     })
+    // const useremail = LoginForm.email.value;
+    // const password = LoginForm.password.value;
+
+    // app.post('/', async(req, res) => {
     //     try {
 
     //         const email = LoginForm.email.value;
@@ -34,7 +49,7 @@ btnSubmit.addEventListener("click", (p) => {
             
     //     }
 
-    //})
+    // })
     
 
     // User.findOne({$or: [{email:useremail}] })
@@ -81,17 +96,17 @@ btnSubmit.addEventListener("click", (p) => {
     // // })
 
 
-    if (useremail === "kav@gmail.com" && password === "test@123") {
-        successMsg.classList.remove("visually-hidden");
-        errorMsg.classList.add("visually-hidden");
+    // if (useremail === "kav@gmail.com" && password === "test@123") {
+    //     successMsg.classList.remove("visually-hidden");
+    //     errorMsg.classList.add("visually-hidden");
     
-    }
+    // }
 
-    else{
-        successMsg.classList.add("visually-hidden");
-        errorMsg.classList.remove("visually-hidden");
+    // else{
+    //     successMsg.classList.add("visually-hidden");
+    //     errorMsg.classList.remove("visually-hidden");
 
-    }
+    // }
 
     // showPassword.onclick = () => {
     //     if(password.type === "password"){
@@ -103,7 +118,7 @@ btnSubmit.addEventListener("click", (p) => {
         
     // }
     
-})
+//})
 
 showPassword.onclick = () => {
     if(password.type === "password"){
