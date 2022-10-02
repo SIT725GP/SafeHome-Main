@@ -1,9 +1,9 @@
 // send data to the server
-const submitIncident = (Incident) => {
+const submitIncident = (Incidents) => {
   $.ajax({
     url: '/api/projects',
     contentType: 'application/json',
-    data: JSON.stringify(Incident), // access in body
+    data: JSON.stringify(Incidents), // access in body
     type: 'POST',
     success: function (result) {
       alert('Project Succesfully submitted')
@@ -72,7 +72,7 @@ listProjects=(incidents)=>{
       '</div>'+
       '<div class="card-content">'+
         '<span class="card-title activator grey-text text-darken-4">'+incidents.incType+'<i class="material-icons right">more_vert</i></span>'+
-        '<p><b>DeviceID :</b>' + incidents.devID+'</p>'+
+        '<p><b>DeviceID :</b>' + incidents.devId+'</p>'+
       '</div>'+
       '<div class="card-reveal">'+
        ' <span class="card-title grey-text text-darken-4">'+incidents.incDate+'<i class="material-icons right">close</i></span>'+
