@@ -4,11 +4,13 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="">
-    <link rel="icon" type="image/x-icon" src="\public\assets\sync.ico">
+    <link rel="icon" type="image/x-icon" src="/public/assets/sync.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Safe@Home</title>
 
     <!-- Compiled and minified CSS -->
+    <!-- CSS only -->
+   
     <!-- Materialze-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
@@ -31,7 +33,7 @@
     <main>
 
         <div class="container">
-            <h1 class="title" id="pageTitle">Incident Reports</h1>
+            <h1 class=""col s12 m4 l8"" al id="pageTitle">Incident Reports</h1>
             <p class="flow-text mainText" id="currDate">Date</p>
             <div class="container">
                 <form class="col s12">
@@ -43,9 +45,15 @@
                         <textarea id="dateto" class="materialize-textarea"></textarea>
                         <label for="dateto">Date To:</label>
                     </div>
+                    <div>
+                        <button class="btn waves-effect waves-light" type="submit" name="action">Search
+                            <i class="material-icons right">send</i>
+                          </button>
+                      </div>
                 </form>
             </div>
             <div class="container">
+                <h2>Incident Reports between </h2> <div class="row" id="datefrom"></div>  <h2> and </h2> <div class="row" id="dateto"></div>
                 <div class="row" id="listProjects">
                 </div>
             </div>
@@ -100,24 +108,24 @@
         <p>Help us to improve our servies</p>
         <div class="row">
             <div class="input-field col s12">
-                <input value="" id="Account" type="text" class="validate">
-                <label class="labelCA" for="Account">Customer Account :</label>
+                <input value="" id="cAccount" type="text" class="validate">
+                <label class="labelCA" for="cAccount">Customer Account :</label>
             </div>
             <div class="input-field col s12">
-                <input value="" id="incidentDate" type="date" class="validate">
-                <label class="labelIncDt" for="incidentDate">Incident Date :</label>
+                <input value="" id="incDate" type="date" class="validate">
+                <label class="labelIncDt" for="incDate">Incident Date :</label>
             </div>
             <div class="input-field col s12">
-                <input value="" id="deviceID" type="text" class="validate">
-                <label class="labelDID" for="deviceID">Device ID</label>
+                <input value="" id="devID" type="text" class="validate">
+                <label class="labelDID" for="devID">Device ID</label>
             </div>
             <div class="input-field col s12">
-                <input value="" id="incidentType" type="text" class="validate">
-                <label class="labelIT" for="incidentType">Incident Type</label>
+                <input value="" id="incType" type="text" class="validate">
+                <label class="labelIT" for="incType">Incident Type</label>
             </div>
             <div class="input-field col s12">
-                <input value="" id="icDesc" type="text" class="validate">
-                <label class="labelDes" for="icDes">Incident Description</label>
+                <input value="" id="incDes" type="text" class="validate">
+                <label class="labelDes" for="incDes">Incident Description</label>
             </div>
 
         </div>

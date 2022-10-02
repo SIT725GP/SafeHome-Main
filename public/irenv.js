@@ -13,27 +13,27 @@ const submitIncident = (project) => {
 
 
 const newIncident = () => {
-  let customerAccount = $('#customerAccount').val()
-  let incidentDate = $('#incidentDate').val()
-  let deviceId = $('#deviceId').val()
-  let incidentType = $('#incidentType').val()
-  let description = $('#description').val()
+  let cAccount = $('#cAccount').val()
+  let incDate = $('#incDate').val()
+  let devId = $('#devId').val()
+  let incType = $('#incType').val()
+  let incDes = $('#incDes').val()
 
-  let project = {
-    customerAccount,incidentDate,deviceId,incidentType,description
+  let incidents = {
+    cAccount,incDate,devId,incType,incDes
   }
-  console.log(project)
-  submitIncident(project)
+  console.log(incidents)
+  submitIncident(incidents)
 
 }
 
 
 const requestProjects = () => {
-  $.get('/api/projects', (projects) => {
+  $.get('/api/projects', (incidents) => {
     if (projects.length > 0) {
-      console.log(projects)
-      listProjects(projects)
-      listProjects2(projects)
+      console.log(incidents)
+      listProjects(incidents)
+      listProjects2(incidents)
     }
   })
 }
@@ -62,21 +62,21 @@ const testButtonFunction = () => {
 
 //appends a the project row with objects of type project 
 var cnt=1;
-listProjects=(projects)=>{
-  projects.forEach(project => {
+listProjects=(incidents)=>{
+  incidents.forEach(incidents => {
     //console.log(project)
     let item='<div class="card col l6">'+
       '<div class="card blue-grey darken-0">'+
-      '<P>'+cnt+++":"+project.incidentDate+'</p> </div>'+
-       '<div> <p><b>Account :</b></t>'+project.customerAccount+'</p>'+
+      '<P>'+cnt+++":"+incidents.incDate+'</p> </div>'+
+       '<div> <p><b>Account :</b></t>'+incidents.cAccount+'</p>'+
       '</div>'+
       '<div class="card-content">'+
-        '<span class="card-title activator grey-text text-darken-4">'+project.incidentType+'<i class="material-icons right">more_vert</i></span>'+
-        '<p><b>DeviceID :</b>' + project.deviceID+'</p>'+
+        '<span class="card-title activator grey-text text-darken-4">'+incidents.incType+'<i class="material-icons right">more_vert</i></span>'+
+        '<p><b>DeviceID :</b>' + incidents.devID+'</p>'+
       '</div>'+
       '<div class="card-reveal">'+
-       ' <span class="card-title grey-text text-darken-4">'+project.incidentDate+'<i class="material-icons right">close</i></span>'+
-        '<p>'+project.description+'</p>'+
+       ' <span class="card-title grey-text text-darken-4">'+incidents.incDate+'<i class="material-icons right">close</i></span>'+
+        '<p>'+incidents.incDes+'</p>'+
      '</div>'+
     '</div>'          
      $('#listProjects').append(item)

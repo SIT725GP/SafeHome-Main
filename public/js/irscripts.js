@@ -22,11 +22,11 @@
     
     const submitForm = () => {
         let formData = {};
-        formData.customerAcccount = $('#customerAccount').val();
-        formData.deviceID = $('#deviceID').val();
-        formData.incidentDate = $('#incidentDate').val();
-        formData.incidentType = $('#incidentType').val();
-        formData.description = $('#description').val();
+        formData.cAcccount = $('#cAccount').val();
+        formData.devID = $('#devID').val();
+        formData.incDate = $('#incDate').val();
+        formData.incType = $('#incType').val();
+        formData.incDes = $('#incDes').val();
     
         console.log("Form Data Submitted: ", formData);
         addProjectToApp(formData);
