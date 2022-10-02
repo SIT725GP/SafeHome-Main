@@ -30,15 +30,29 @@ var frmDate = new Date("1900-09-24");
 var endDate = new Date("2022-12-31");
 
 const newSearch = () => {
-frmDate = new Date($('#frmDate').val())
-endDate = new Date($('#endDate').val())
+frmDate = $('#frmDate').val()
+endDate = $('#endDate').val()
 console.log('on newserch()>>')
 converDate()
 requestProjects()
 }
 
+
+
+
+const requestProjects = () => {
+  $.get('/api/projects', (incidents) => {
+    if (incidents.length > 0) {
+      console.log('unfiltered Incidents :'+incidents);
+      filterData(incidents);
+      //listProjects(incidents)
+      //listProjects2(incidents)
+    }
+  })
+}
+
 const converDate = () => {
-  console.log('fromDate : '+$('#frmDate').val()+' And '+ 'endDate :'+$('#endDate').val())
+  console.log('inside conve1 >> fromDate : '+$('#frmDate').val()+' And '+ 'endDate :'+$('#endDate').val())
   //var frmDate = $('#frmDate').val()
   //var endDate = $('#endDate').val()
   //console.log('fromDate : '+frmDate+' And '+ 'endDate :'+endDate)
@@ -46,30 +60,19 @@ const converDate = () => {
   //$("#pageTitle2").html("Safe@Home - Incident Reports ")
   //frmDate = dt1.getFullYear()+"-"+ dt1.getMonth()+"-"+dt1.getDate()
   //endDate = dt2.getFullYear()+"-"+ dt2.getMonth()+"-"+dt2.getDate()
-  console.log('fromDate : '+frmDate+' And '+ 'endDate :'+endDate)
-}
-
-
-const requestProjects = () => {
-  $.get('/api/projects', (incidents) => {
-    if (incidents.length > 0) {
-      console.log("unfiltered Incidents :"+incidents)
-      filterData(incidents)
-      //listProjects(incidents)
-      //listProjects2(incidents)
-    }
-  })
+  console.log('inside conve2 >>fromDate : '+frmDate+' And '+ 'endDate :'+endDate)
 }
 
 const filterData =(incidents) => {
-  //var frmDate = $('#frmDate').val()
-  //var endDate = $('#endDate').val()
+  var frmDate = $('#frmDate').val()
+  var endDate = $('#endDate').val()
+  console.log('inside fiterdata() >>')
   var resultIncedentData = incidents.filter(a => {
-    var date = new Date(a.incDate);
+    var date = a.incDate;
      return (date >= frmDate && date <= endDate);
   });
   listProjects(resultIncedentData)
-  console.log("Filtered Incident Data :"+resultIncedentData)
+  console.log('Filtered Incident Data :'+resultIncedentData)
   }
   
 
@@ -142,7 +145,7 @@ $(document).ready(function () {
 
   /// modal window initialize
   $('.modal').modal();
-  requestProjects()
+  //requestProjects()
 
 
 })
