@@ -4,7 +4,8 @@
   "description": "",
   "main": "login_script.js",
   "scripts": {
-    "start": "node login_server.js"
+    "start": "node login_server.js",
+    "test": "mocha --reporter spec"
   },
   "author": "MD KAVIUL HOSSAIN",
   "license": "ISC",

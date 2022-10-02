@@ -5,7 +5,7 @@ const cors = require('cors');
 const mongoose = require('mongoose')
 const morgan = require('morgan')
 const bodyParser = require('body-parser')
-let user = require("./Controller/AuthController")
+//let user = require("./Controller/AuthController")
 
 const authRoute = require('./Routes/auth')
 const User = require("./Model/user")
@@ -53,7 +53,7 @@ app.post('/', async(req, res) => {
        res.send(useremail);
        console.log(useremail)
 
-       //const userpassword = await User.findOne({password:password})
+       
     .then(user => {
         if(user){
        bcrypt.compare(password, User.findOne({password:password}), function(err, result) 
@@ -92,3 +92,21 @@ app.listen(port, ()=> {
 })
 
 
+//Testing units
+
+// app.get('/addTwoNumbers/:n1/:n2', function(request, response){
+//   response.sendStatus(200);
+// })
+
+// app.get('/addTwoNumbers/:n1/:n2', function(request, response){
+//     response.json({statusCode:200});
+  
+//   })
+  
+  
+//   app.get('/api/projects', function(request, response){
+//     response.sendStatus(200);
+  
+//   })
+  
+  
