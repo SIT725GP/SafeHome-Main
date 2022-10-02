@@ -103,7 +103,6 @@ app.listen(port, ()=> {
   
 //   })
   
-  
 //   app.get('/api/projects', function(request, response){
 //     response.sendStatus(200);
   
