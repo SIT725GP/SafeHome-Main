@@ -6,7 +6,7 @@ const cors = require("cors") // import cors
 const UserRouter = require("./controllers/User") //import User Routes
 const TodoRouter = require("./controllers/Todo") // import Todo Routes
 const {createContext} = require("./controllers/middleware")
-
+const User = require("./models/User")
 
 //DESTRUCTURE ENV VARIABLES WITH DEFAULT VALUES
 const {PORT = 3000} = process.env
@@ -57,6 +57,55 @@ let projectsRoute = require('./routes/projects')
 app.use('/api/projects',projectsRoute)
 
 app.use(express.json());
+
+
+app.get('/', (req, res) => {
+  res.sendFile(__dirname+'/public/design/login.html');
+})
+
+
+app.post('/', async(req, res) => {
+  try {
+      const email = req.body.email;
+      const password = req.body.password;
+  
+     const useremail = await User.findOne({email:email});
+     res.send(useremail);
+     console.log(useremail)
+
+     
+  .then(user => {
+      if(user){
+     bcrypt.compare(password, User.findOne({password:password}), function(err, result) 
+     {
+      if(err){
+      res.json({error: err})
+  }
+  if(result){
+      let token = jwt.sign({email: useremail}, 'verySecretValue', {expiresIn: '2h'})
+      res.json({message:"Login Successful!", token
+
+      })
+  }
+  else{
+      res.json({
+          message: "Invalid Password!" })
+      }
+  })
+}
+  
+  else {
+      res.json({message: 'No user found!'})
+  }
+})
+
+      
+}catch (error) {
+  res.sendFile(__dirname+'/public/design/login.html');   
+  }
+
+})
+
 
 // APP LISTENER
 app.listen(PORT, () => log.green("SERVER STATUS", `Listening on port ${PORT}`))
