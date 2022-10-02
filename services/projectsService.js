@@ -24,6 +24,7 @@ async function findIncidentByDates(client, startDate,endDate) {
 }
 
 const insertIncident = (incidents, res) => {
+    console.log(incidents);
     incidentReports.insertOne(incidents, (err, result) => {
         console.log('Incident Reorted', result)
         res.send({ result: 200 })
