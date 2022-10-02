@@ -1,9 +1,9 @@
 // send data to the server
-const submitIncident = (project) => {
+const submitIncident = (Incident) => {
   $.ajax({
     url: '/api/projects',
     contentType: 'application/json',
-    data: JSON.stringify(project), // access in body
+    data: JSON.stringify(Incident), // access in body
     type: 'POST',
     success: function (result) {
       alert('Project Succesfully submitted')
@@ -30,10 +30,10 @@ const newIncident = () => {
 
 const requestProjects = () => {
   $.get('/api/projects', (incidents) => {
-    if (projects.length > 0) {
+    if (incidents.length > 0) {
       console.log(incidents)
       listProjects(incidents)
-      listProjects2(incidents)
+      //listProjects2(incidents)
     }
   })
 }
@@ -84,7 +84,7 @@ listProjects=(incidents)=>{
 }
 
 
-var count = 1;
+/*var count = 1;
 let item2 = '<table class=""highlight"" style="width:100%"><thead><tr><th>#No</th> <th>Account</th><th>Incident Date</th><th>Incident Type</th><th>Device ID</th><th>Description</th></tr>' +
   '</thead> <tbody>';
 $('#listProjects2').append(item2);
@@ -96,7 +96,7 @@ listProjects2 = (projects) => {
   },
     $('#listProjects2').append('</tbody> </table> </div>'));
     //console.log(listProjects2)
-}
+}*/
 
 
 

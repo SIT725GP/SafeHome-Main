@@ -1,12 +1,12 @@
 let client = require("../dbConnect");
-let projectsCollection;
+let incidentReports;
 setTimeout(() => {
-    projectsCollection = client.mongoClient.db("safehome").collection("shincidents");
+    incidentReports = client.mongoClient.db("safehome").collection("shincidents");
 
 }, 2000)
 
-const getAllProjects = (res) => {
-    projectsCollection.find().toArray(function (err, result) {
+const getAllIncidents = (res) => {
+    incidentReports.find().toArray(function (err, result) {
         if (err) throw err;
         res.send(result)
     })
@@ -23,8 +23,8 @@ async function findIncidentByDates(client, startDate,endDate) {
     }
 }
 
-const insertProject = (project, res) => {
-    projectsCollection.insertOne(project, (err, result) => {
+const insertIncident = (incidents, res) => {
+    incidentReports.insertOne(incidents, (err, result) => {
         console.log('Incident Reorted', result)
         res.send({ result: 200 })
     })
@@ -33,5 +33,5 @@ const insertProject = (project, res) => {
 
 
 module.exports = {
-    getAllProjects,insertProject
+    insertIncident,getAllIncidents
 }

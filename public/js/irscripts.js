@@ -1,6 +1,6 @@
 
-    const getProjects = () => {
-        $.get('/api/projects',(response) => {
+    const getIncidents = () => {
+        $.get('/api/incidents',(response) => {
             if(response.statusCode==200){
                 addCards(response.data);
             }
@@ -50,31 +50,14 @@
         alert("Thanks for clicking me. Hope you have a nice day!")
     }
     
-  /*   const submitForm = () => {
-        let formData = {};
-        formData.first_name = $('#first_name').val();
-        formData.last_name = $('#last_name').val();
-        formData.password = $('#password').val();
-        formData.email = $('#email').val();
-    
-        console.log("Form Data Submitted: ", formData);
-    }
-    
-   $(document).ready(function(){
-        $('.materialboxed').materialbox();
-        addCards(cardList);
-        $('.modal').modal();
-        $('#formSubmit').click(()=>{
-            submitForm();
-        })
-    })*/
+ 
 
     $(document).ready(function(){
         $('.materialboxed').materialbox();
         $('#formSubmit').click(()=>{
             submitForm();
         })
-        getProjects();
+        getIncident();
         $('.modal').modal();
       });
     

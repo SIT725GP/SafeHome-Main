@@ -1,14 +1,14 @@
 let Service = require("../services");
 
-const getProjects = (res) => {
-    console.log('controller ')
-    Service.ProjectService.getAllProjects(res)
+const getIncidents = (res) => {
+    console.log('controller - incidents ')
+    Service.ProjectService.getAllIncidents(res)
 }
 
 const createProject = (data, res) => {
-    Service.ProjectService.insertProject(data,res)
+    Service.ProjectService.insertIncident(data,res)
 }
 
 module.exports = {
-    getProjects, createProject
+    getIncidents, createProject
 }

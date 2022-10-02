@@ -4,7 +4,7 @@ var Controllers = require("../controllers");
 
 
 router.get('/', (req, res) => {
-    Controllers.projectsController.getProjects(res);
+    Controllers.projectsController.getIncidents(res);
 
     // get projects from database
     //getProjects(res)
