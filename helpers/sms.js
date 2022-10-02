@@ -1,27 +1,36 @@
+import "dotenv/config";
+import axios from "axios";
+
 export const sendSMS = async (to, message, country = "AU") => {
   let url = "https://rest.clicksend.com/v3/sms/send";
 
   try {
     let source = "js";
+    let username = process.env.REACT_APP_CLICKSEND_USERNAME;
+    let password = process.env.REACT_APP_CLICKSEND_API_TOKEN;
 
     // Recipient phone number in E.164 format.
     to = normalizePhoneNumber(to);
     const { data } = await axios({
       method: "POST",
       url,
-      data: JSON.stringify({
-        // Your sender id
-        from: process.env.REACT_APP_CLICKSEND_SENDER_ID,
-        to,
-        body: message,
-        // method of sending e.g. 'wordpress', 'php', 'c#'.
-        source,
-        // ISO alpha-2 character country code e.g. 'US', we use this to format the recipient number if it's not in international format.
-        country,
-      }),
+      data: {
+        messages: [
+          {
+            from: username,
+            to,
+            body: message,
+            // method of sending e.g. 'wordpress', 'php', 'c#'.
+            source,
+            // ISO alpha-2 character country code e.g. 'US', we use this to format the recipient number if it's not in international format.
+            country,
+          },
+        ],
+      },
       headers: {
         "Content-Type": "application/json",
-        Authorization: "Basic " + process.env.REACT_APP_CLICK_SEND_API_TOKEN,
+        Authorization:
+          "Basic " + Buffer.from(username + ":" + password).toString("base64"),
       },
     });
 

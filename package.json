@@ -1,11 +1,14 @@
 {
   "name": "deakin-crowds",
   "version": "0.0.0",
+  "type": "module",
   "dependencies": {
+    "axios": "^0.27.2",
     "body-parser": "^1.19.0",
     "cf-deployment-tracker-client": "*",
     "chai": "^4.3.4",
     "commander": "^2.6.0",
+    "dotenv": "^16.0.3",
     "express": "^4.14.1",
     "http-post": "^0.1.1",
     "http-proxy": "^1.8.1",
@@ -17,10 +20,11 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "test": "mocha --reporter spec"
+    "test": "mocha --reporter spec",
+    "sms": "node helpers/sms-test.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/abyscaria/sit725-2022-t2-prac6" 
+    "url": "https://github.com/abyscaria/sit725-2022-t2-prac6"
   }
 }
