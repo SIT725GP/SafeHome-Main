@@ -5,6 +5,12 @@
 .title{
   color: rgb(68, 49, 49);
 }
+.incR-title {
+  text-align: justify;
+  color: rgb(68, 49, 49);
+  width: 100%;
+  }
+
 .mainText{
   color:white;
 }

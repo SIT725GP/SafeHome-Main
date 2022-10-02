@@ -2,7 +2,6 @@ let client = require("../dbConnect");
 let incidentReports;
 setTimeout(() => {
     incidentReports = client.mongoClient.db("safehome").collection("shincidents");
-
 }, 2000)
 
 const getAllIncidents = (res) => {
@@ -10,6 +9,7 @@ const getAllIncidents = (res) => {
         if (err) throw err;
         res.send(result)
     })
+    console.log("data retrieved :"+result)
 }
 
 async function findIncidentByDates(client, startDate,endDate) {
@@ -26,7 +26,7 @@ async function findIncidentByDates(client, startDate,endDate) {
 const insertIncident = (incidents, res) => {
     console.log(incidents);
     incidentReports.insertOne(incidents, (err, result) => {
-        console.log('Incident Reorted', result)
+        console.log('Incident Reorted >>', result)
         res.send({ result: 200 })
     })
 }

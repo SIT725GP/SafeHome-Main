@@ -19,27 +19,59 @@ const newIncident = () => {
   let incType = $('#incType').val()
   let incDes = $('#incDes').val()
 
-  let incidents = {
+  let incident = {
     cAccount,incDate,devId,incType,incDes
   }
-  console.log(incidents)
-  submitIncident(incidents)
+  console.log(incident)
+  submitIncident(incident)
 
+}
+var frmDate = new Date("1900-09-24");
+var endDate = new Date("2022-12-31");
+
+const newSearch = () => {
+frmDate = new Date($('#frmDate').val())
+endDate = new Date($('#endDate').val())
+console.log('on newserch()>>')
+converDate()
+requestProjects()
+}
+
+const converDate = () => {
+  console.log('fromDate : '+$('#frmDate').val()+' And '+ 'endDate :'+$('#endDate').val())
+  //var frmDate = $('#frmDate').val()
+  //var endDate = $('#endDate').val()
+  //console.log('fromDate : '+frmDate+' And '+ 'endDate :'+endDate)
+ // $("#pageTitle").html("Safe@Home - Incident Reports ")
+  //$("#pageTitle2").html("Safe@Home - Incident Reports ")
+  //frmDate = dt1.getFullYear()+"-"+ dt1.getMonth()+"-"+dt1.getDate()
+  //endDate = dt2.getFullYear()+"-"+ dt2.getMonth()+"-"+dt2.getDate()
+  console.log('fromDate : '+frmDate+' And '+ 'endDate :'+endDate)
 }
 
 
 const requestProjects = () => {
   $.get('/api/projects', (incidents) => {
     if (incidents.length > 0) {
-      console.log(incidents)
-      listProjects(incidents)
+      console.log("unfiltered Incidents :"+incidents)
+      filterData(incidents)
+      //listProjects(incidents)
       //listProjects2(incidents)
     }
   })
 }
 
-
-
+const filterData =(incidents) => {
+  //var frmDate = $('#frmDate').val()
+  //var endDate = $('#endDate').val()
+  var resultIncedentData = incidents.filter(a => {
+    var date = new Date(a.incDate);
+     return (date >= frmDate && date <= endDate);
+  });
+  listProjects(resultIncedentData)
+  console.log("Filtered Incident Data :"+resultIncedentData)
+  }
+  
 
 const testButtonFunction = () => {
   //alert('Thank you for clicking')
@@ -50,15 +82,6 @@ const testButtonFunction = () => {
 
 //let socket = io();
 
-
-/*socket.on('number', (msg) => {
-  console.log('Random number: ' + msg);
-  var dt = new Date();
-  $("#pageTitle").html("Safe@Home - Incident Reports ")
-  $("#pageTitle2").html("Safe@Home - Incident Reports ")
-  $("#currDate").html("As on :" + dt.getDate() + "/" + dt.getMonth() + "/" + dt.getFullYear() + "-" + dt.getHours() + ":" + dt.getMinutes())
-  $("#currDate2").html("As on :" + dt.getDate() + "/" + dt.getMonth() + "/" + dt.getFullYear() + "-" + dt.getHours() + ":" + dt.getMinutes())
-})*/
 
 //appends a the project row with objects of type project 
 var cnt=1;

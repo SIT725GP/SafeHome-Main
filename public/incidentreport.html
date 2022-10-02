@@ -33,24 +33,37 @@
     <main>
 
         <div class="container">
-            <h1 class=""col s12 m4 l8"" al id="pageTitle">Incident Reports</h1>
-            <p class="flow-text mainText" id="currDate">Date</p>
+            
+            <h1 class="row" id="incR-title">Incident Reports</h1>
+            <div class="col s12 m4 l8"><p></p></div>
+            <p class="flow-text mainText" id="blank0"></p>
+            <p class="flow-text mainText" id="blank1"></p>
+            <p class="flow-text mainText" id="blank0"></p>
             <div class="container">
-                <form class="col s12">
-                    <div class="input-field col s12">
-                        <textarea id="datefrom" class="materialize-textarea"  type="date"></textarea>
-                        <label for="datefrom">Date From</label>
+                <form class="col s12"    >
+                    <div class="input-field col s6">
+                        <input value="" id="frmDate" type="date" class="validate">
+                        <label class="labelfrmDate" for="frmDate">Incident Date from :</label>
                     </div>
-                    <div class="input-field col s12">
-                        <textarea id="dateto" class="materialize-textarea"></textarea>
-                        <label for="dateto">Date To:</label>
+                    <div class="input-field col s6">
+                        <input value="" id="endDate" type="date" class="validate">
+                        <label class="labelendDate" for="endDate">Incident Date To:</label>
                     </div>
                     <div>
                         <button class="btn waves-effect waves-light" type="submit" name="action">Search
                             <i class="material-icons right">send</i>
                           </button>
-                      </div>
+                    </div>
                 </form>
+                <script>
+                    document.addEventListener("submit", searchInc);
+                    function searchInc() {
+                        newSearch()
+                        //alert('Form submitted!');
+                        return false;
+                    }
+                </script>
+                     
             </div>
             <div class="container">
                <!-- <h2>'Incident Reports between'+$datefrom+' And '+$dateto</h2> -->
@@ -101,7 +114,7 @@
 
 </html>
 
-<!-- Modal Structure -->
+<!-- Incident Report Modal Structure -->
 <div id="irmodal" class="modal">
     <div class="modal-content">
         <h4>Report incident happend at your Home</h4>
