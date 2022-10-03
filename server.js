@@ -27,16 +27,19 @@ app.use(morgan("tiny")) // log the request for debugging
 app.use(express.json()) // parse json bodies
 app.use(createContext) // create req.context
 
-app.get("/test", function (request, response) {
+
+/* app.get("/test", function (request, response) {
   var user_name = request.query.user_name;
   response.end("Hello " + user_name + "!");
-});
+}); */
 
 
-// JASON's ROUTES AND ROUTES
+
 /* app.get("/test", (req, res) => {
     res.send("this is the test route to make sure server is working")
         }) */
+
+// JASON's ROUTES AND ROUTES
 app.use("/user", UserRouter) // send all "/user" requests to UserRouter for routing
 app.use("/todos", TodoRouter) // send all "/todos" request to TodoROuter
 
@@ -59,6 +62,7 @@ app.use('/api/projects',projectsRoute)
 app.use(express.json());
 
 
+// Kaviul Login
 app.get('/', (req, res) => {
   res.sendFile(__dirname+'/public/design/login.html');
 })
