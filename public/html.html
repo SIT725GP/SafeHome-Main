@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Emailing Component</title>
+        <meta name="author" content="Loliwe">
+        <meta name="viewpoint" content="width-device-width, initial-scale=1.0">
+
+              
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+
+        <style>
+            .activity {
+                width: 645px;
+                height: 160px;
+                border: 2px solid black;
+                align-self: center;
+            }
+        
+            .activity > div {
+                padding: 20px;
+                align-self: center;
+            }
+        
+            .activity .top.left {
+                display: inline-block;
+                text-align: center;
+                width: 174px;
+                height: 30;
+                border-right: 1px solid black;
+            }
+            .activity .top.right {
+                display: inline-block;
+                text-align: center;
+                height: 30;
+                border-right: 1px solid black;
+            }
+            .activity .bottom {
+                display: inline-block;
+                text-align: center;
+                width: 605px;
+                height: 50;
+                border-top: 1px solid black;
+            }
+        </style>
+
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+        <script type="text/javascript">
+            (function(){
+                emailjs.init("xmWzjThK6JdL7HawM");
+            })();
+        </script>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <h1 id="header" class="center-align">SafeHome</h1>
+            </div>
+            <div class="col s12 center-align">
+                <a class="waves-effect waves-light btn" id="notificationButton" onclick="alertReceived()"><i class="material-icons left">cloud</i>Incoming Notification</a>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <br>
+    <form class="container center-align" >
+        <div class="activity">
+            <div class="top left">
+            <div class="formBox">
+            <label for="device_id"><h6>Enter a device ID: </h6></label>
+            </div>
+        </div>
+        <div class="formBox">
+            <div class="top right">
+            <input type='text' name="device_id" id='jack' placeholder="Device ID" maxlength ="3">
+        </div>
+        </div>
+        <div class="bottom">
+        <div class="formBox">
+            <input type="button" id="btn0" value="Press Here!">
+        </div>
+        </div>
+    </form>
+    <br>
+    <div id="msg" class="left-align">
+        <pre></pre>
+    </div>
+    <hr>
+    <br>
+    <div style="text-align: center">
+        <input type="button" value="Send Email" onclick="sendEmail()"></input>
+    </div>
+    <br>
+    <a style="font-weight:bold" href="/index.html">Back to homepage</a>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+                      <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        
+        // a function for an alert message when a fire is detection
+        const alertReceived = () => {
+            alert("We detect a fire. We need to respond quickly.")
+        }
+
+        $(document).ready(function(){
+            $('#notificationButton').click(()=>{
+                alertReceived();
+            })
+        })
+
+        // a function for submitted device_id
+        let two = [];
+
+        const receiveId = (ev)=>{
+            ev.preventDefault();
+            let ewe = {
+                date: new Date(),
+                device_id: document.getElementById('jack').value
+            }
+        
+        two.push(ewe);
+        //document.forms[0].reset();
+        document.querySelector('form').reset();
+
+        console.warn('Nofication received', {two});
+        let pre = document.querySelector('#msg pre');
+        pre.textContent = '\n' + JSON.stringify(two, '\t', 2);
+
+        let relt = two.map(a => a.device_id);
+        console.log(relt.toString());
+        
+        let lan = two.map(a => a.date);
+        console.log(lan.toString());
+       
+        return relt;
+        return lan;
+        }
+
+        document.addEventListener('DOMContentLoaded', ()=>{
+        document.getElementById("btn0").addEventListener('click', receiveId);
+    });
+
+    //export { relt, lan };
+
+    </script>
+    <script src="mail.js"></script>
+</body>
+</html>

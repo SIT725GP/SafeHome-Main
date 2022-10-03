@@ -20,6 +20,7 @@
   "homepage": "https://github.com/SIT725GP/main#readme",
   "keywords": [],
   "dependencies": {
+    "@emailjs/browser": "^3.7.0",
     "bcryptjs": "^2.4.3",
     "chai": "^4.3.6",
     "cors": "^2.8.5",
@@ -28,6 +29,7 @@
     "jsonwebtoken": "^8.5.1",
     "mercedlogger": "^1.0.1",
     "mocha": "^10.0.0",
+    "mongodb": "^4.10.0",
     "mongoose": "^6.6.3",
     "morgan": "^1.10.0",
     "request": "^2.88.2",
