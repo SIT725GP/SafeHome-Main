@@ -11,7 +11,8 @@ const authRoute = require('./Routes/auth')
 const User = require("./Model/user")
 //const UserSignUpRoute = require('./Routes/usersignup');
 //const url =  "mongodb+srv://kaviuln1:kaviuln@kncluster-1.ieurp6n.mongodb.net/?retryWrites=true&w=majority"
-const url =  "mongodb+srv://kaviul:kaviuln@safehome.tqfgm2a.mongodb.net/safehome?retryWrites=true&w=majority"
+
+/* const url =  "mongodb+srv://kaviul:kaviuln@safehome.tqfgm2a.mongodb.net/safehome?retryWrites=true&w=majority"
 try{
 mongoose.connect(url, {useUnifiedTopology: true},
     () => console.log("Mongoose connected"),
@@ -27,7 +28,7 @@ db.on('error', (err) => {
 
 db.once('open', () => {
     console.log("Database Connection Established!")
-})
+}) */
 
 
 app.use(morgan('dev'))
