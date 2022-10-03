@@ -70,17 +70,16 @@ app.post('/', async(req, res) => {
       const password = req.body.password;
   
      const useremail = await User.findOne({email:email});
-     res.send(useremail);
+     //res.send(useremail);
      console.log(useremail)
-
      
-  .then(user => {
-      if(user){
-     bcrypt.compare(password, User.findOne({password:password}), function(err, result) 
-     {
-      if(err){
-      res.json({error: err})
-  }
+        .then(user => {
+            if(user){
+          bcrypt.compare(password, User.findOne({password:password}), function(err, result) 
+          {
+            if(err){
+            res.json({error: err})
+        }
   if(result){
       let token = jwt.sign({email: useremail}, 'verySecretValue', {expiresIn: '2h'})
       res.json({message:"Login Successful!", token
