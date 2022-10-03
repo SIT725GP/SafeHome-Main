@@ -10,7 +10,7 @@
 
     <!-- Compiled and minified CSS -->
     <!-- CSS only -->
-   
+
     <!-- Materialze-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
@@ -25,7 +25,7 @@
         <nav>
             <div class="nav-wrapper" style=" background-color: #433b3b;">
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="http://localhost:3000/">Safe@Home - Home</a></li>
+                    <li><a href="/">Safe@Home - Home</a></li>
                 </ul>
             </div>
         </nav>
@@ -33,27 +33,40 @@
     <main>
 
         <div class="container">
-            <h1 class=""col s12 m4 l8"" al id="pageTitle">Incident Reports</h1>
-            <p class="flow-text mainText" id="currDate">Date</p>
+
+            <h1 class="center" id="incR-title">Incident Reports</h1>
+
             <div class="container">
                 <form class="col s12">
-                    <div class="input-field col s12">
-                        <textarea id="datefrom" class="materialize-textarea"  type="date"></textarea>
-                        <label for="datefrom">Date From</label>
+                    <div class="input-field col s6">
+                        <input id="frmDate" value="" type="date" class="date1">
+                        <label class="labelfrmDate" for="frmDate">Incident Date from :</label>
                     </div>
-                    <div class="input-field col s12">
-                        <textarea id="dateto" class="materialize-textarea"></textarea>
-                        <label for="dateto">Date To:</label>
+                    <div class="input-field col s6">
+                        <input id="endDate" value="" type="date" class="date1">
+                        <label class="labelendDate" for="endDate">Incident Date To:</label>
                     </div>
                     <div>
                         <button class="btn waves-effect waves-light" type="submit" name="action">Search
                             <i class="material-icons right">send</i>
-                          </button>
-                      </div>
+                        </button>
+                    </div>
                 </form>
+                <script>
+                    document.addEventListener("submit", searchInc);
+                    function searchInc() {
+                        alert('Form submitted!');
+                        var dt1 = new Date($('#frmDate').val())
+                        var dt2 = new Date($('#endDate').val())
+                        console.log('date1 :' + getFormattedDate(dt1) + 'date2 :' + getFormattedDate(dt2))
+                        newSearch(dt1, dt2)
+                        return false;
+                    }
+                </script>
+
             </div>
             <div class="container">
-               <!-- <h2>'Incident Reports between'+$datefrom+' And '+$dateto</h2> -->
+                <!-- <h2>'Incident Reports between'+$datefrom+' And '+$dateto</h2> -->
                 <div class="row" id="listProjects">
                 </div>
             </div>
@@ -64,7 +77,7 @@
                     style="color:white; font-size:larger ">emoji_people</i>Report Incident</a>
         </div>
 
-      <!---  <div class="container">
+        <!---  <div class="container">
             <h1 class="title" id="pageTitle2">Incident Reports</h1>
             <p class="flow-text mainText" id="currDate2">Date</p>
             <div class="row" style="width:100%">
@@ -101,7 +114,7 @@
 
 </html>
 
-<!-- Modal Structure -->
+<!-- Incident Report Modal Structure -->
 <div id="irmodal" class="modal">
     <div class="modal-content">
         <h4>Report incident happend at your Home</h4>
