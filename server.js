@@ -74,7 +74,7 @@ app.post('/', async(req, res) => {
       const password = req.body.password;
   
      const useremail = await User.findOne({email:email});
-     //res.send(useremail);
+     res.send(useremail);
      console.log(useremail)
      
         .then(user => {
