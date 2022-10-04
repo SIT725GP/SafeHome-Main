@@ -6,12 +6,12 @@ const submitIncident = (Incidents) => {
     data: JSON.stringify(Incidents), // access in body
     type: 'POST',
     success: function (result) {
-      alert('Incident Reporte Successfully')
+      alert('Incident Successfully Reported ')
     }
   });
 }
 
-
+//New incident data trafer from form 
 const newIncident = () => {
   let cAccount = $('#cAccount').val()
   let incDate = $('#incDate').val()
@@ -28,9 +28,10 @@ const newIncident = () => {
 }
 
 
-//To seach based on incident reported date
-var frmDate; 
-var endDate; 
+//To search based on incident reported date
+var frmDate;
+var endDate;
+var cnt = 1;
 
 const newSearch = (dt1, dt2) => {
   frmDate = getFormattedDate(dt1);
@@ -40,18 +41,18 @@ const newSearch = (dt1, dt2) => {
   //endDate = new Date(dt2);
   console.log('on newserch()>>' + frmDate + '----' + endDate)
   converDate()
+  cnt = 1;
   //console.log('before caling requestProjects in newSearch()>>')
   requestIncidents()
 }
 
+// Fetching incidents from the MongoDB
 const requestIncidents = () => {
   $.get('/api/projects', (incidents) => {
     if (incidents.length > 0) {
       console.log(incidents)
       converDate()
       filterData(incidents)
-      //listProjects(incidents)
-      //listProjects2(incidents)
     }
   })
 }
@@ -63,23 +64,23 @@ const converDate = () => {
   var dt1 = new Date($('#frmDate').val())
   var dt2 = new Date($('#endDate').val())
   //console.log('fromDate dt1 : '+dt1+' And '+ 'endDate dt2:'+dt2)
-  frmDate = getFormattedDate(dt1) 
-  endDate = getFormattedDate(dt2)  
+  frmDate = getFormattedDate(dt1)
+  endDate = getFormattedDate(dt2)
   console.log('inside conve2 >>fromDate : ' + frmDate + ' And ' + 'endDate :' + endDate)
 }
 
+//Date conversion module 
+
 function getFormattedDate(date) {
   var year = date.getFullYear();
-
   var month = (1 + date.getMonth()).toString();
   month = month.length > 1 ? month : '0' + month;
-
   var day = date.getDate().toString();
   day = day.length > 1 ? day : '0' + day;
-
   return year + '-' + month + '-' + day;
 }
 
+//Filter incidents based on date range 
 const filterData = (incidents) => {
   // var frmDate = $('#frmDate').val();
   //var endDate = $('#endDate').val();
@@ -97,11 +98,11 @@ const filterData = (incidents) => {
   }
   else {
     document.getElementById("incL-title").innerHTML = 'All Incidents Reported';
+    incidents.sort()
     listProjects(incidents)
     console.log('unFiltered Incident Data :' + incListFilt)
   }
 }
-
 
 
 const testButtonFunction = () => {
@@ -109,15 +110,14 @@ const testButtonFunction = () => {
 }
 
 
-
 //To List the incidents based on the Search condition 
-var cnt = 1;
+//var cnt = 1;
 listProjects = (incidents) => {
   incidents.forEach(incidents => {
     //console.log(project)
     let item = '<div class="card col l6">' +
-      '<div class="card blue-grey darken-0">' +
-      '<P>' + cnt++ + ":" + incidents.incDate + '</p> </div>' +
+      '<div class="card #e6ee9c lime lighten-30">' +
+      '<P><b>' + cnt++ + "...:" + incidents.incDate + '</b></p> </div>' +
       '<div> <p><b>Account :</b></t>' + incidents.cAccount + '</p>' +
       '</div>' +
       '<div class="card-content">' +
@@ -125,7 +125,7 @@ listProjects = (incidents) => {
       '<p><b>DeviceID :</b>' + incidents.devId + '</p>' +
       '</div>' +
       '<div class="card-reveal">' +
-      ' <span class="card-title grey-text text-darken-4">' + incidents.incDate + '<i class="material-icons right">close</i></span>' +
+      ' <span class="card-title #ff9e80 deep-orange accent-1"><b>' + incidents.incDate + '</b><i class="material-icons right">close</i></span>' +
       '<p>' + incidents.incDes + '</p>' +
       '</div>' +
       '</div>'
@@ -159,7 +159,7 @@ $(document).ready(function () {
   $('.modal').modal();
 
   requestIncidents()
- 
+
 
 
 })

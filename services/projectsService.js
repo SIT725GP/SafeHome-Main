@@ -12,16 +12,6 @@ const getAllIncidents = (res) => {
     })
 }
 
-async function findIncidentByDates(client, startDate,endDate) {
-    const projectsCollection = client.mongoClient.db("safehome").collection("shincidents").find({ incedentDate: nameOfListing });
-
-    if (result) {
-        console.log(`Found a listing in the collection with the name '${nameOfListing}':`);
-        console.log(result);
-    } else {
-        console.log(`No listings found with the name '${nameOfListing}'`);
-    }
-}
 
 const insertIncident = (incidents, res) => {
     console.log(incidents);

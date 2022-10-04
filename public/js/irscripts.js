@@ -1,5 +1,5 @@
 
-    const getIncidents = () => {
+    /* const getIncidents = () => {
         $.get('/api/incidents',(response) => {
             if(response.statusCode==200){
                 addCards(response.data);
@@ -44,7 +44,7 @@
           '</div></div></div>';
           $("#card-section").append(itemToAppend)
         });
-    }*/
+    }
     
     const clickMe = () => {
         alert("Thanks for clicking me. Hope you have a nice day!")
@@ -59,5 +59,5 @@
         })
         getIncident();
         $('.modal').modal();
-      });
-    
+      });*/
+    console.log('someone invoked irscript')
