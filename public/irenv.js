@@ -1,4 +1,4 @@
-// send data to the server
+// sTo Save the incident report to SafeHome Database
 const submitIncident = (Incidents) => {
   $.ajax({
     url: '/api/projects',
@@ -6,7 +6,7 @@ const submitIncident = (Incidents) => {
     data: JSON.stringify(Incidents), // access in body
     type: 'POST',
     success: function (result) {
-      alert('Project Succesfully submitted')
+      alert('Incident Reporte Successfully')
     }
   });
 }
@@ -14,7 +14,7 @@ const submitIncident = (Incidents) => {
 
 const newIncident = () => {
   let cAccount = $('#cAccount').val()
-  let incDate = getFormattedDate($('#incDate').val())
+  let incDate = $('#incDate').val()
   let devId = $('#devId').val()
   let incType = $('#incType').val()
   let incDes = $('#incDes').val()
@@ -27,21 +27,24 @@ const newIncident = () => {
 
 }
 
-var frmDate; //= getFormattedDate($('#frmDate').val());
-var endDate; //= getFormattedDate($('#endDate').val());
+
+//To seach based on incident reported date
+var frmDate; 
+var endDate; 
 
 const newSearch = (dt1, dt2) => {
   frmDate = getFormattedDate(dt1);
   endDate = getFormattedDate(dt2);
+  document.getElementById("listIncidents").innerHTML = "";
   //console.log('inside - newserach() date1 :' + dt1 + 'date2 :' + dt2)
   //endDate = new Date(dt2);
   console.log('on newserch()>>' + frmDate + '----' + endDate)
   converDate()
   //console.log('before caling requestProjects in newSearch()>>')
-  requestProjects()
+  requestIncidents()
 }
 
-const requestProjects = () => {
+const requestIncidents = () => {
   $.get('/api/projects', (incidents) => {
     if (incidents.length > 0) {
       console.log(incidents)
@@ -53,15 +56,15 @@ const requestProjects = () => {
   })
 }
 
+
+
 const converDate = () => {
   //console.log('inside conve1 >> fromDate : ' + $('#frmDate').val() + ' And ' + 'endDate :' + $('#endDate').val())
   var dt1 = new Date($('#frmDate').val())
   var dt2 = new Date($('#endDate').val())
   //console.log('fromDate dt1 : '+dt1+' And '+ 'endDate dt2:'+dt2)
-  // $("#pageTitle").html("Safe@Home - Incident Reports ")
-  //$("#pageTitle2").html("Safe@Home - Incident Reports ")
-  frmDate = getFormattedDate(dt1) //.getFullYear()+'-'+dt1.getMonth()+'-'+dt1.getDate()
-  endDate = getFormattedDate(dt2)  //.getFullYear()+'-'+dt2.getMonth()+'-'+dt2.getDate()
+  frmDate = getFormattedDate(dt1) 
+  endDate = getFormattedDate(dt2)  
   console.log('inside conve2 >>fromDate : ' + frmDate + ' And ' + 'endDate :' + endDate)
 }
 
@@ -73,8 +76,8 @@ function getFormattedDate(date) {
 
   var day = date.getDate().toString();
   day = day.length > 1 ? day : '0' + day;
-  
-  return  year+ '-' +  month+ '-' +day ;
+
+  return year + '-' + month + '-' + day;
 }
 
 const filterData = (incidents) => {
@@ -86,12 +89,17 @@ const filterData = (incidents) => {
     var date = a.incDate;
     return (date >= frmDate && date <= endDate);
   });
-  if (frmDate !== "" && endDate !== "") {
-  var incListFilt = incidents.filter(a => a.incDate >= frmDate && a.incDate <= endDate);
-     listProjects(incListFilt)}
-  else
+  if (frmDate !== 'NaN-NaN-NaN' && endDate !== 'NaN-NaN-NaN') {
+    var incListFilt = incidents.filter(a => a.incDate >= frmDate && a.incDate <= endDate);
+    document.getElementById("incL-title").innerHTML = 'Incidents Reported from ' + frmDate + ' To ' + endDate;
+    listProjects(incListFilt)
+    console.log('Filtered Incident Data :' + incListFilt)
+  }
+  else {
+    document.getElementById("incL-title").innerHTML = 'All Incidents Reported';
     listProjects(incidents)
-  console.log('Filtered Incident Data :' + incListFilt)
+    console.log('unFiltered Incident Data :' + incListFilt)
+  }
 }
 
 
@@ -101,13 +109,8 @@ const testButtonFunction = () => {
 }
 
 
-// connect to the socket
 
-//let socket = io();
-
-
-
-//appends a the project row with objects of type project 
+//To List the incidents based on the Search condition 
 var cnt = 1;
 listProjects = (incidents) => {
   incidents.forEach(incidents => {
@@ -126,26 +129,9 @@ listProjects = (incidents) => {
       '<p>' + incidents.incDes + '</p>' +
       '</div>' +
       '</div>'
-    $('#listProjects').append(item)
+    $('#listIncidents').append(item)
   });
 }
-
-
-/*var count = 1;
-let item2 = '<table class=""highlight"" style="width:100%"><thead><tr><th>#No</th> <th>Account</th><th>Incident Date</th><th>Incident Type</th><th>Device ID</th><th>Description</th></tr>' +
-  '</thead> <tbody>';
-$('#listProjects2').append(item2);
-listProjects2 = (projects) => {
-  projects.forEach(project => {
-    item2 = '<tr><td>' + count++ + '<td>' + project.customerAccount + '</td><td>' + project.incidentDate + '</td><td>' + project.incidentType + '</td>' +
-      '<td>' + project.deviceID + '</td><td>' + project.description + '</td></tr>'
-    $('#listProjects2').append(item2)
-  },
-    $('#listProjects2').append('</tbody> </table> </div>'));
-    //console.log(listProjects2)
-}*/
-
-
 
 
 // INITIALIZATION 
@@ -172,7 +158,8 @@ $(document).ready(function () {
   /// modal window initialize
   $('.modal').modal();
 
-  requestProjects()
+  requestIncidents()
+ 
 
 
 })

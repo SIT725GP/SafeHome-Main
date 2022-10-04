@@ -34,15 +34,15 @@
 
         <div class="container">
 
-            <h1 class="center" id="incR-title">Incident Reports</h1>
+            <h1 class="center" id="incR-title">Incident Report</h1>
 
             <div class="container">
-                <form class="col s12">
-                    <div class="input-field col s6">
+                <form class="col s6">
+                    <div class="input-field col s4">
                         <input id="frmDate" value="" type="date" class="date1">
                         <label class="labelfrmDate" for="frmDate">Incident Date from :</label>
                     </div>
-                    <div class="input-field col s6">
+                    <div class="input-field col s4">
                         <input id="endDate" value="" type="date" class="date1">
                         <label class="labelendDate" for="endDate">Incident Date To:</label>
                     </div>
@@ -55,7 +55,7 @@
                 <script>
                     document.addEventListener("submit", searchInc);
                     function searchInc() {
-                        alert('Form submitted!');
+                        //alert('Search submitted!');
                         var dt1 = new Date($('#frmDate').val())
                         var dt2 = new Date($('#endDate').val())
                         console.log('date1 :' + getFormattedDate(dt1) + 'date2 :' + getFormattedDate(dt2))
@@ -66,8 +66,8 @@
 
             </div>
             <div class="container">
-                <!-- <h2>'Incident Reports between'+$datefrom+' And '+$dateto</h2> -->
-                <div class="row" id="listProjects">
+                 <h4 class="center" id="incL-title">All Incidents</h4> 
+                <div class="row" id="listIncidents">
                 </div>
             </div>
         </div>
@@ -76,16 +76,6 @@
                 style="background-color: #875612;"><i class="material-icons left"
                     style="color:white; font-size:larger ">emoji_people</i>Report Incident</a>
         </div>
-
-        <!---  <div class="container">
-            <h1 class="title" id="pageTitle2">Incident Reports</h1>
-            <p class="flow-text mainText" id="currDate2">Date</p>
-            <div class="row" style="width:100%">
-                <div id="listProjects2">
-                </div>
-            </div>
-        </div> -->
-
 
     </main>
     <footer class="page-footer">
