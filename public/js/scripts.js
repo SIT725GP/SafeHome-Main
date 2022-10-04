@@ -12,11 +12,12 @@ const addUserToApp = (user) => {
 }
 
 
-const addChecklistToApp = () => {
+//ajax function to add checklist
+const addChecklistToApp = (checklist) => {
     alert("Thank you for submitting your checklist")
     $.ajax({
-        url: '/checklist',
-        data: user,
+        url: '/api/checklists',
+        data: checklist,
         type: 'POST',
         success: (result) => {
             alert(result.message);
@@ -41,7 +42,7 @@ const submitUserForm = () => {
 }
 
 
-const addChecklist = () => {
+const submitChecklistForm = () => {
     let formData = {};
     formData.confirm_stovetop = $('#confirm_stovetop').val();
     formData.confirm_key = $('#confirm_key').val();
@@ -57,6 +58,7 @@ const addChecklist = () => {
 
 
 
+
   $(document).ready(function(){
     $('.materialboxed').materialbox();
     $('#formSubmit').click(()=>{
@@ -64,7 +66,7 @@ const addChecklist = () => {
     })
 
     $('#checklist').click(()=>{
-        addChecklist();
+        submitChecklistForm();
     })
 
     $('.modal').modal();
