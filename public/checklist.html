@@ -14,9 +14,7 @@
     <script src="http://code.jquery.com/jquery-1.11.2.min.js"
     type="text/javascript"></script>
 
-</head>  
 
-<body>
     <nav>
         <div class="nav-wrapper navbar-size">
         <a href="#" class="brand-logo"><img class="user-image-size" src="#"/></a>
@@ -29,84 +27,90 @@
           </ul>
         </div>
     </nav>
+</head>  
+
+<body class="text-center">
+    <main>
+        <div class="container">
+
+            <!-- Checklist Form-->
+            <div class="col s12 center-align">
+                <h5 id="heading">Alarm Disarming Checklist</h5>
+            
+        
+                </br>
+                <form class="col s12">
+                    <p>There is no fire outside</p>
+                    <div class="switch">
+                        
+                        <label>
+                        
+                        <input type="checkbox" name="confirm_stovetop" required>
+                        <span class="lever"></span>
+                        I Confirm
+                        </label>
+                    </div>
+                    </br>
+                    <p>Open home using key</p>
+                    <div class="switch">
+                        
+                        <label>
+                        
+                        <input type="checkbox" name="confirm_key" required>
+                        <span class="lever"></span>
+                        I Confirm
+                        </label>
+                    </div>
+                    </br>
+        
+                    <div class="switch">
+                        <p>Open all windows and doors</p>
+                        <label>
+                        
+                        <input type="checkbox" name="confirm_stovetop" required>
+                        <span class="lever"></span>
+                        I Confirm
+                        </label>
+                    </div>
+                    </br>
+            
+                    <div class="switch">
+                        <p>Do not switch on lights</p>
+                        <label>
+                        
+                        <input type="checkbox" name="confirm_nolights" required>
+                        <span class="lever"></span>
+                        I Confirm
+                        </label>
+                    </div>
 
 
-    
-<main class="main-body">
-    <div class="container">
+                    <div class="switch">
+                        <p>Do not light any matches or cigarette lighters</p>
+                        <label>
+                        
+                        <input id="stovetop" type="checkbox" name= "confirm_nomatches" required>
+                        <span class="lever"></span>
+                        I Confirm
+                        </label>
+                    </div>
 
-
-      <!--Find a better method for this-->
-        </br></br>
-        </br>
-     
-    
-
-        <!-- Checklist Form-->
-        <div class="col s12 center-align">
-            <h5 id="heading">Checklist</h5>
+                    <div class="row">
+                        <div class="input-field col s12 center-align">
+                        <a class="waves-effect waves-light btn" id="checklist">Submit<i class="material-icons right">send</i></a>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
         
-        </br>
-        <form class="col s12">
-            <div class="switch">
-                Have you checked your stovetop?
-                <label>
-                Yes
-                <input id="stovetop" type="checkbox">
-                <span class="lever"></span>
-                No
-                </label>
-            </div>
-        </br>
+    </main>
 
-            <div class="switch">
-                Have you checked your stovetop?
-                <label>
-                Yes
-                <input id="stovetop" type="checkbox">
-                <span class="lever"></span>
-                No
-                </label>
-            </div>
-        </br>
-   
-            <div class="switch">
-                Have you checked your stovetop?
-                <label>
-                Yes
-                <input id="stovetop" type="checkbox">
-                <span class="lever"></span>
-                No
-                </label>
-            </div>
-        </br>
-     
-            <div class="switch">
-                Have you checked your stovetop?
-                <label>
-                Yes
-                <input id="stovetop" type="checkbox">
-                <span class="lever"></span>
-                No
-                </label>
-            </div>
-
-                <div class="row">
-                    <div class="input-field col s12 center-align">
-                    <a class="waves-effect waves-light btn" id="formSubmit">Submit<i class="material-icons right">send</i></a>
-                    </div>
-                </div>
-
-            
-            </form>
-    </div>
-</main>
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<!-- Compiled and minified JavaScript -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<script src="js/scripts.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="js/scripts.js"></script>
 
 </body>
+
 </html>
