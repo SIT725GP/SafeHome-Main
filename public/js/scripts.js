@@ -12,8 +12,17 @@ const addUserToApp = (user) => {
 }
 
 
-const clickMe = () => {
-    alert("Thanks for clicking me. Hope you have a nice day!")
+const addChecklistToApp = () => {
+    alert("Thank you for submitting your checklist")
+    $.ajax({
+        url: '/checklist',
+        data: user,
+        type: 'POST',
+        success: (result) => {
+            alert(result.message);
+            location.reload(); // it automatically reloads the page 
+        }
+    })
 }
 
 
@@ -32,11 +41,32 @@ const submitUserForm = () => {
 }
 
 
+const addChecklist = () => {
+    let formData = {};
+    formData.confirm_stovetop = $('#confirm_stovetop').val();
+    formData.confirm_key = $('#confirm_key').val();
+    formData.confirm_stovetop = $('#confirm_stovetop').val();
+    formData.confirm_nolights = $('#confirm_nolights').val();
+    formData.confirm_nomatches = $('#confirm_nomatches').val();
+
+    
+
+    console.log("Form Data Submitted: ", formData);
+    addChecklistToApp(formData);
+}
+
+
+
   $(document).ready(function(){
     $('.materialboxed').materialbox();
     $('#formSubmit').click(()=>{
         submitUserForm();
     })
+
+    $('#checklist').click(()=>{
+        addChecklist();
+    })
+
     $('.modal').modal();
   });
 
