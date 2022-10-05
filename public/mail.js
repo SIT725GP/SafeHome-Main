@@ -7,7 +7,7 @@ const MongoClient = require('mongodb').MongoClient;
 //console.log(lan);
 
 //database connection ...
-const uri = "mongodb+srv://loliwe:Haz6PS7Wi1unrkad@safehome.tqfgm2a.mongodb.net/?retryWrites=true&w=majority";
+const uri = "mongodb+srv://user:pwd@safehome.tqfgm2a.mongodb.net/?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, });
 
 var _db;
@@ -36,7 +36,7 @@ app.get('/', (req, res) => {
 const database = client.db("safehome");
 const email = database.collection("email");
 
-const sult = email.find({device_id: "002"}).forEach(console.dir)
+const sult = email.find({device_id: "001"}).forEach(console.dir)
   .then((res) => {
     console.log('Data has been retrieved successfully');
 });
