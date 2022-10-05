@@ -19,7 +19,7 @@
   <body class="text-center">
     <main class="main-body">
       <div class="container">
-        <form id="createaccount-form"> 
+        <form id="createaccount-form"  class="needs-validation">
           <div class="form-row">
             <div class="col-lg-15">
               <h3 class="mb-3">Create Account</h3> <br>
@@ -28,44 +28,55 @@
 
               <div class="form-row">
                 <div class="col-lg-15">
-                  <input id="first_name" type="text" class="form-control" placeholder="First Name"><br>
+                  <input id="first_name" type="text" class="form-control" name="first_name" placeholder="First Name" required><br>
+                  <div class="valid-feedback">Valid.</div>
+                  <div class="invalid-feedback">Please fill out your first name.</div>
                 </div>
               </div>
 
 
               <div class="form-row">
                 <div class="col-lg-15">
-                  <input id="last_name" type="text" class="form-control" placeholder="Last Name"><br> 
+                  <input id="last_name" type="text" class="form-control" name="last_name" placeholder="Last Name" required><br> 
+                  <div class="valid-feedback">Valid.</div>
+                  <div class="invalid-feedback">Please fill out this your last name.</div>
                 </div>
               </div>
 
               <div class="form-row">
                 <div class="col-lg-15">
-                  <input id="home_address" type="text" class="form-control" placeholder="Home Address"><br>
+                  <input id="home_address" type="text" class="form-control" name="home_address" placeholder="Home Address" required><br>
+                  <div class="valid-feedback">Valid.</div>
+                  <div class="invalid-feedback">Please fill out your home address.</div>
                 </div>
               </div>
                   
               <div class="form-row">
                 <div class="col-lg-15">
-                  <input id="email" type="email" class="form-control" placeholder="Email Address"><br>      
+                  <input id="email" type="email" class="form-control" name="email" placeholder="Email Address" required><br>
+  
                 </div>
               </div>
 
               <div class="form-row">
                 <div class="col-lg-15">
-                    <input id="username" type="text" class="form-control" placeholder="Username"><br>
+                    <input id="username" type="text" class="form-control" name="username" placeholder="Username" required><br>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please create a username.</div>
                 </div>
               </div>
 
               <div class="form-row">
                 <div class="col-lg-15">
-                  <input id="password" type="password" class="form-control" placeholder="Password"><br>
+                  <input id="password" type="password" class="form-control" name="password" placeholder="Enter Password" required><br>
+                  <div class="valid-feedback">Valid.</div>
+                  <div class="invalid-feedback">Please create a password.</div>
                 </div>
               </div>
               
               <div class="form-row">
                 <div class="col-lg-15">
-                  <input id="password_confirm" type="password" class="form-control" placeholder="Confirm Password"><br>
+                  <input id="password_confirm" type="password" class="form-control" name="password_confirm" placeholder="Confirm Password" required><br>
                 </div>
               </div>
                     
