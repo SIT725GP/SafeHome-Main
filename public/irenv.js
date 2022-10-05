@@ -1,7 +1,7 @@
 // sTo Save the incident report to SafeHome Database
 const submitIncident = (Incidents) => {
   $.ajax({
-    url: '/api/projects',
+    url: '/api/incidents',
     contentType: 'application/json',
     data: JSON.stringify(Incidents), // access in body
     type: 'POST',
@@ -48,7 +48,7 @@ const newSearch = (dt1, dt2) => {
 
 // Fetching incidents from the MongoDB
 const requestIncidents = () => {
-  $.get('/api/projects', (incidents) => {
+  $.get('/api/incidents', (incidents) => {
     if (incidents.length > 0) {
       console.log(incidents)
       converDate()

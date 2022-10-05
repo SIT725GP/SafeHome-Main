@@ -60,7 +60,7 @@ app.use("/todos", TodoRouter) // send all "/todos" request to TodoROuter
 
 //ABY Routes
 let projectsRoute = require('./routes/projects')
-app.use('/api/projects',projectsRoute)
+app.use('/api/incidents',projectsRoute)
 
 app.use(express.json());
 

@@ -10,7 +10,7 @@
     //ajax function...
     const addProjectToApp = (project) => {
         $.ajax({
-            url: '/api/projects',
+            url: '/api/incidents',
             data: project,
             type: 'POST',
             success: (result) => {
